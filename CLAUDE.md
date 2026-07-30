@@ -1,6 +1,6 @@
 # BLOOM Civic Host Cohort — recruitment materials
 
-Working repo for the offering document and recruitment landing page for BLOOM's **first Civic Host cohort** (six regions, launching Fall 2027).
+Working repo for the offering document and recruitment landing page for BLOOM's **first Civic Host cohort** (six regions, launching Fall 2026).
 
 Maintainer: Rahmin Sarabi, Co-Executive Director, BLOOM.
 
