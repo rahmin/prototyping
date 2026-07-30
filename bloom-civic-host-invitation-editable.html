@@ -148,6 +148,15 @@
   .card li::before{content:"";position:absolute;left:2px;top:17px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
   .card.commit li::before{background:transparent;border:1.5px solid var(--pine-soft)}
 
+  /* method */
+  .method-list{margin-top:8px}
+  .method-item{display:flex;gap:18px;align-items:flex-start;padding:22px 0;border-top:1px solid var(--line)}
+  .method-item:first-child{border-top:none;padding-top:6px}
+  .method-item .icon{width:26px;height:26px;color:var(--gold);flex:none;margin-top:3px}
+  .method-item .icon svg{width:100%;height:100%;display:block}
+  .method-item h3{font-size:19px;margin-bottom:6px}
+  .method-item p{font-size:15.5px;color:#5b4a38;line-height:1.55}
+
   /* who */
   .who .body{max-width:64ch;font-size:18px;color:#3d2f1f}
   .who .body strong{font-weight:700;color:var(--ink)}
@@ -307,30 +316,6 @@
     </div>
   </section>
 
-  <section class="method reveal in">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="eyebrow">The method</div>
-        <h2>Why a lottery, and why it works.</h2>
-        <p>The heart of the arc is the Civic Assembly: a group of residents chosen by lottery to mirror your region — by age, geography, background, and politics. Give a genuine cross-section good information, expert testimony, time, and skilled facilitation, and something reliable happens. People reason their way to practical answers they trust across political lines. It is one of the oldest ideas in self-government, and one of the best-tested.</p>
-      </div>
-      <div class="tool-grid">
-        <div class="tool">
-          <h3>A true cross-section</h3>
-          <p>Lottery selection reaches past the activists and the usual meeting-goers to the whole community — the people who never testify at a hearing. That is what lets the assembly's conclusions credibly stand for your region, rather than for whoever showed up.</p>
-        </div>
-        <div class="tool">
-          <h3>Informed and engaged</h3>
-          <p>Delegates hear from experts, weigh the tradeoffs, and work the question together over days, not minutes. They come out understanding the issue deeply enough to decide it — and to explain the decision to their neighbors.</p>
-        </div>
-        <div class="tool">
-          <h3>A tested tradition</h3>
-          <p>From ancient civic juries to today's national assemblies in Ireland, France, and beyond, sortition has been run more than a thousand times. The pattern holds: representative people, well informed, reach durable common ground.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="tools reveal in">
     <div class="wrap">
       <div class="sec-head">
@@ -404,6 +389,39 @@
             <li>Contribute your findings into the federation</li>
             <li>Move on the shared cohort timeline</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="method reveal in">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">The method</div>
+        <h2>Why a lottery, and why it works.</h2>
+        <p>The heart of the arc is the Civic Assembly: a group of residents chosen by lottery to mirror your region — by age, geography, background, and politics. Give a genuine cross-section good information, expert testimony, time, and skilled facilitation, and something reliable happens. People reason their way to practical answers they trust across political lines. It is one of the oldest ideas in self-government, and one of the best-tested.</p>
+      </div>
+      <div class="method-list">
+        <div class="method-item">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r=".8" fill="currentColor" stroke="none"/><circle cx="15" cy="9" r=".8" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r=".8" fill="currentColor" stroke="none"/><circle cx="9" cy="15" r=".8" fill="currentColor" stroke="none"/><circle cx="15" cy="15" r=".8" fill="currentColor" stroke="none"/></svg></div>
+          <div>
+            <h3>A true cross-section</h3>
+            <p>Lottery selection reaches past the activists and the usual meeting-goers to the whole community — the people who never testify at a hearing. That is what lets the assembly's conclusions credibly stand for your region, rather than for whoever showed up.</p>
+          </div>
+        </div>
+        <div class="method-item">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.5-1.2-3.5-2-6-2v13c2.5 0 4.5.8 6 2 1.5-1.2 3.5-2 6-2V4c-2.5 0-4.5.8-6 2z"/><path d="M12 6v13"/></svg></div>
+          <div>
+            <h3>Informed and engaged</h3>
+            <p>Delegates hear from experts, weigh the tradeoffs, and work the question together over days, not minutes. They come out understanding the issue deeply enough to decide it — and to explain the decision to their neighbors.</p>
+          </div>
+        </div>
+        <div class="method-item">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+          <div>
+            <h3>A long track record</h3>
+            <p>From ancient civic juries to today's national assemblies in Ireland, France, and beyond, sortition has been run more than a thousand times. The pattern holds: representative people, well informed, reach durable common ground.</p>
+          </div>
         </div>
       </div>
     </div>
