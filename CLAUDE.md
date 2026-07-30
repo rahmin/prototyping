@@ -87,10 +87,11 @@ Flagged rather than silently hardened into fact. Do not treat as citable yet.
 
 ## Landing page design
 
-Distinct civic identity, deliberately non-partisan.
+Matches BLOOM's real production visual identity — pulled directly from the live Utah anchor site (utah.bloomproject.us / CivicOS OpenPoll), not a generic invented palette. This was a deliberate correction: the original draft used Fraunces + Public Sans + pine-green/gold, a combination that reads as a generic "AI-generated landing page." Don't revert to that system.
 
-- **Type:** Fraunces (display) + Public Sans (body — the U.S. government's typeface, chosen to signal civic credibility).
-- **Palette:** pine green `#234E3E` / `#15332A`, harvest gold `#BE862B`, paper `#F2F3EC`. No red or blue — nothing should read partisan.
+- **Type:** Hanken Grotesk (headlines + body) + DM Mono (buttons, pill badges, small labels — uppercase, letter-spaced). Real site uses a proprietary "Geom" for headlines; Hanken Grotesk is its public fallback and what the real site's body copy already uses.
+- **Palette:** cream paper `#FFF8F1`, espresso ink `#432004`, coral accent `#EE503B` (links, small accents), muted forest green `#406B43` (primary CTA buttons, matching the real site's button color). Variable names in the CSS (`--pine`, `--gold`, etc.) are historical — values now point to this palette, not the old pine/gold one.
+- **Eyebrow labels** render as small dark pill badges (mono font, uppercase), matching the "OPEN POLL" tag treatment on the real site — not tracked-uppercase plain text.
 - **Structure:** hero → why now → the arc (dark signature band, the one bold element) → the toolkit → the lanes → the reciprocal deal → who we are + proof stats + peer pull-quote → the cohort → closing CTA.
 - CTA "Express interest" appears in the sticky header, hero, and final section.
 - Respects `prefers-reduced-motion`; focus-visible outlines on interactive elements.
