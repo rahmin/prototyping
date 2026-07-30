@@ -179,6 +179,22 @@
   .fed .one{width:26px;height:26px;border-radius:50%;background:var(--gold)}
   .fed .cap{font-family:"DM Mono",monospace;font-size:12px;color:var(--pine-soft);flex-basis:100%;text-transform:uppercase;letter-spacing:.03em}
 
+  /* timeline */
+  .timeline{background:#F3E8D3;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .timeline-strip{display:flex;gap:24px;margin-top:16px;position:relative}
+  .timeline-strip::before{content:"";position:absolute;top:6px;left:6px;right:6px;height:2px;background:rgba(67,32,4,.2)}
+  .timeline-stop{flex:1;position:relative;padding-top:34px}
+  .timeline-stop .dot{position:absolute;top:0;left:0;width:14px;height:14px;border-radius:50%;background:var(--gold)}
+  .timeline-stop .when{font-family:"DM Mono",monospace;font-size:12px;color:var(--pine-soft);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
+  .timeline-stop h3{font-size:19px;margin-bottom:6px}
+  .timeline-stop p{font-size:14.5px;color:#5b4a38;line-height:1.5}
+  @media(max-width:820px){
+    .timeline-strip{flex-direction:column;gap:26px}
+    .timeline-strip::before{display:none}
+    .timeline-stop{padding-top:0;padding-left:26px}
+    .timeline-stop .dot{top:4px;left:0}
+  }
+
   /* final cta */
   .final{background:var(--ink);color:var(--paper);text-align:center}
   .final h2{font-size:clamp(30px,4.4vw,46px);color:var(--paper);max-width:16ch;margin:0 auto 20px}
@@ -448,6 +464,42 @@
           <span class="arrow">→</span>
           <span class="one"></span>
           <span class="cap">Six local findings converge into one mandate.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline reveal in">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">A sample calendar</div>
+        <h2>Roughly five to nine months, kickoff to assembly.</h2>
+        <p>One representative pacing — hosts compress or extend this arc depending on where their coalition starts.</p>
+      </div>
+      <div class="timeline-strip">
+        <div class="timeline-stop">
+          <div class="dot"></div>
+          <div class="when">Months 1–2</div>
+          <h3>Commission</h3>
+          <p>Steering committee convenes; political landscape mapping and coalition-building begin.</p>
+        </div>
+        <div class="timeline-stop">
+          <div class="dot"></div>
+          <div class="when">Months 2–4</div>
+          <h3>Engage</h3>
+          <p>Community forums, an open poll, and small-group conversations surface where common ground already exists.</p>
+        </div>
+        <div class="timeline-stop">
+          <div class="dot"></div>
+          <div class="when">Months 4–6</div>
+          <h3>Deliberate</h3>
+          <p>Delegates recruited by lottery, briefed with expert learning materials, and convened for the Civic Assembly.</p>
+        </div>
+        <div class="timeline-stop">
+          <div class="dot"></div>
+          <div class="when">Month 6+</div>
+          <h3>Carry &amp; Federate</h3>
+          <p>Recommendations move into real decision venues and combine with the other regions' findings.</p>
         </div>
       </div>
     </div>
