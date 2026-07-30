@@ -98,6 +98,7 @@ Each host commissions its assembly on a live local AI question — but the cohor
 - **K–12 education** — how AI enters classrooms, what rules protect kids and teachers, and who decides
 - **Jobs and workforce** — how AI reshapes local work, worker right-to-know, and transitions
 - **Affordability and wealth** — how the gains and costs of AI are distributed, and who benefits
+- **Surveillance and privacy** — how AI-enabled monitoring and data collection show up in public life, and what consent, transparency, and limits should look like
 - **Public involvement in decision-making** *(meta)* — how these decisions get made at all: who has a say, what consent and self-governance require, and how communities stay non-dominated as AI reshapes public life.
 
 A host localizes one lane (or the community selects during commissioning) to a concrete, decidable question for its context. Because every site works from the same lanes, the *carry* stays local while the *federate* compounds — shared subtopics are what let cross-site findings add up to a mandate.

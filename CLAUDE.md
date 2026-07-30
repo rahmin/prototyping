@@ -32,8 +32,8 @@ Six regions run one arc, adapted locally. BLOOM enables; the host convenes and c
 4. **Carry** — supermajority recommendations advanced with local institutions, city/county officials, school boards, and state representatives where state policy is implicated.
 5. **Federate** — findings across all six sites synthesized for leverage at larger scales: state, national, and direct to private and civil society actors.
 
-**The five subtopic lanes** (shared across the cohort so findings can federate):
-data centers & AI infrastructure · K–12 education · jobs & workforce · affordability & wealth · public involvement in decision-making *(meta)*
+**The six subtopic lanes** (shared across the cohort so findings can federate):
+data centers & AI infrastructure · K–12 education · jobs & workforce · affordability & wealth · surveillance & privacy · public involvement in decision-making *(meta)*
 
 **Matching grants — two cost-shared buckets:** broad public engagement, and the Civic Assembly itself. CivicOS co-design is **provided by BLOOM**, not a bucket the host cost-shares. (This changed mid-draft; don't reintroduce a third bucket.)
 
