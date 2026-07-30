@@ -64,11 +64,11 @@ The methods themselves are open and free; the platform is maintained and improve
 
 Every host runs the same five-part spine, customized to local ground. The seven elements of the offering are woven through this arc; each one attaches to a phase below.
 
-**Commission → Convene → Deliberate → Carry → Federate**
+**Commission → Engage → Deliberate → Carry → Federate**
 
 **1. Commission.** You assemble a **cross-partisan steering committee** — pole-spanning local organizations and respected residents — that identifies and frames a question the community will take up and *pre-commits to receive and act on the result.* This is the crucial move: the assembly carries real weight because it is chartered by a body that has already agreed to act on its answer. The steering committee is your local impact table in embryo.
 
-**2. Convene.** Broad public engagement via CivicOS / OpenPoll and community conversations — getting large numbers of residents into the room (and online) to make sense of the issue together, surfacing where common ground actually lives beneath the noise and the real-life experiences and hopes people have on it. This is how you build a public — surfacing the lived experience and shared ground that a poll would flatten.
+**2. Engage.** Broad public engagement via CivicOS / OpenPoll and community conversations — getting large numbers of residents into the room (and online) to make sense of the issue together, surfacing where common ground actually lives beneath the noise and the real-life experiences and hopes people have on it. This is how you build a public — surfacing the lived experience and shared ground that a poll would flatten.
 
 **3. Deliberate.** A **Civic Assembly** — a sortition-selected, demographically representative body — works the full Forum Assembly arc (framing, expert input, facilitated deliberation across difference, a theme team, and a set of recommendations) to a legitimate, considered judgment.
 
@@ -148,7 +148,7 @@ Customization flows from your tier: the arc is the same; the on-ramp is bespoke.
 |---|---|
 | **Anchors** | Central Oregon (COCAP) · Utah (Utah Common Ground / MWEG) |
 | **New hosts** | Four regions, selected for cross-partisan credibility and reach |
-| **Shared spine** | Commission → Convene → Deliberate → Carry → Federate |
+| **Shared spine** | Commission → Engage → Deliberate → Carry → Federate |
 | **Shared timeline** | So sites reinforce one another |
 | **Shared payoff** | Convergent findings federated for state / national leverage |
 
