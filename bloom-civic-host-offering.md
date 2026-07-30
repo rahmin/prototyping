@@ -32,6 +32,18 @@ Our relationship to you is deliberately clear:
 
 ---
 
+## Why this matters for you
+
+A poll tells you what people think. A petition tells you they're upset. Neither builds what your community actually needs: a coalition rooted in common ground that can turn agreement into real policy change — and keep doing it.
+
+- **A coalition, not a moment.** The cross-partisan steering committee and the relationships it builds outlast the assembly — a standing table that keeps meeting, and keeps mending trust across political lines, long after the report is filed.
+- **Real policy impact.** Supermajority findings carried directly into councils, districts, agencies, and legislatures — action on the issues that actually shape your community, not a study that sits on a shelf.
+- **Civic agency, built to last.** Your own people gain the skills and standing to run this again on the next hard question — a community that has practiced governing together, not just being asked its opinion.
+
+This goes beyond polls and petitions — it's collaborative self-governance: a community that decides together, acts together, and gets stronger for having done it.
+
+---
+
 ## Who we are
 
 BLOOM is a team of civic practitioners, technologists, and organizers who have spent years building the infrastructure for communities to make hard decisions together. We are asking you to trust us with your community's time and credibility, so here is why we are ready for that.
