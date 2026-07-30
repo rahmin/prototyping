@@ -233,6 +233,8 @@
   #editor-ui button.alt{background:transparent;color:#FFF8F1;border:1px solid rgba(255,248,241,.4)}
   #editor-ui button.alt:hover{background:rgba(255,248,241,.12)}
   #editor-ui .flash{color:#9bd3b3;font-weight:600}
+  #editor-ui .flash.err{color:#ffab9c}
+  #editor-ui button:disabled{opacity:.6;cursor:default}
   @media print{#editor-ui{display:none}}
 </style>
 </head>
@@ -565,7 +567,8 @@
 
 <div id="editor-ui">
   <span class="hint" id="ed-hint">Double-click any text to edit. Reloading discards changes — save to keep them.</span>
-  <button id="ed-save">Save editable copy</button>
+  <button id="ed-repo">Save to repo</button>
+  <button id="ed-save" class="alt">Save editable copy</button>
   <button id="ed-clean" class="alt">Download clean copy</button>
 </div>
 <script id="editor-script">
@@ -588,8 +591,12 @@
 
     var hint = document.getElementById('ed-hint');
     var defaultHint = 'Double-click any text to edit. Reloading discards changes — save to keep them.';
-    function flash(msg){
-      hint.innerHTML = '<span class="flash">' + msg + '</span>';
+    function flash(msg, isError){
+      var span = document.createElement('span');
+      span.className = isError ? 'flash err' : 'flash';
+      span.textContent = msg;
+      hint.textContent = '';
+      hint.appendChild(span);
       setTimeout(function(){ hint.textContent = defaultHint; }, 4500);
     }
 
@@ -621,6 +628,42 @@
     document.getElementById('ed-clean').addEventListener('click', function(){
       serialize(false, 'bloom-civic-host-invitation.html', 'Clean copy downloaded — no editor, ready to send.');
     });
+
+    // "Save to repo" only means anything when this page is being served by
+    // edit-server.py on loopback. Opened any other way (file://, GitHub Pages)
+    // there's nothing to POST to, so drop the button rather than dangle it.
+    var repoBtn = document.getElementById('ed-repo');
+    var isLocalServer = location.protocol === 'http:' &&
+      (location.hostname === 'localhost' || location.hostname === '127.0.0.1');
+
+    if(!isLocalServer){
+      repoBtn.remove();
+    } else {
+      repoBtn.addEventListener('click', function(){
+        var active = document.querySelector('[contenteditable="true"]');
+        if(active){ active.blur(); }
+
+        var clone = document.documentElement.cloneNode(true);
+        clone.querySelectorAll('[contenteditable]').forEach(function(n){ n.removeAttribute('contenteditable'); });
+        clone.querySelectorAll('[data-ce]').forEach(function(n){ n.removeAttribute('data-ce'); });
+
+        repoBtn.disabled = true;
+        repoBtn.textContent = 'Saving…';
+
+        fetch('/__save', {
+          method: 'POST',
+          headers: {'Content-Type': 'text/html; charset=utf-8'},
+          body: '<!DOCTYPE html>\n' + clone.outerHTML
+        })
+          .then(function(r){ return r.json(); })
+          .then(function(d){ flash(d.message, !d.ok); })
+          .catch(function(e){ flash('Save failed: ' + e.message, true); })
+          .then(function(){
+            repoBtn.disabled = false;
+            repoBtn.textContent = 'Save to repo';
+          });
+      });
+    }
   })();
 </script>
 

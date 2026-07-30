@@ -13,17 +13,25 @@ Maintainer: Rahmin Sarabi, Co-Executive Director, BLOOM.
 | `bloom-civic-host-offering.md` | **Source of truth.** Full offering / prospectus. Deep-dive sent to hosts who have leaned in. |
 | `bloom-civic-host-invitation-editable.html` | Condensed recruitment landing page. Has a built-in double-click-to-edit toolbar. |
 | `bloom-civic-host-invitation.html` | Clean copy of the landing page, editor stripped. **This is the one to publish or send.** Generated from the editable file — don't hand-edit it if you're using `sync-edits.sh`. |
-| `sync-edits.sh` | Pulls browser edits back into the repo: takes the newest `bloom-civic-host-invitation-editable*.html` from `~/Downloads`, regenerates the clean copy from it, shows a word-diff, commits, pushes. |
+| `edit-server.py` | **Preferred editing path.** Serves the editable page on loopback and adds a "Save to repo" button that writes, regenerates, commits, and pushes in one click. |
+| `sync-edits.sh` | Fallback for when you've edited via the download flow: takes the newest `bloom-civic-host-invitation-editable*.html` from `~/Downloads`, regenerates the clean copy, shows a word-diff, commits, pushes. |
+| `make-clean.py` | Shared strip logic that derives the clean copy from the editable one. Both of the above call it, so the transform lives in exactly one place. |
 
 **Keep the two in sync.** When copy changes in one, check whether it belongs in the other. The markdown is authoritative; the HTML is a condensed, editorialized cut of it — it deliberately omits readiness tiers and full grant mechanics. The HTML *does* include a simplified 4-stop version of the timeline (Commission/Engage/Deliberate/Carry & Federate with rough month ranges) in its own "Time and effort" section right after the deal section — it's framed around workload/pacing per phase (deliberately distinct from "How it works," which covers what each phase does), not a duplicate of the full onboarding→federate phase table in the markdown.
 
-**Editing in the browser.** The double-click editor can't write back to disk — it saves by downloading a copy — so `sync-edits.sh` closes that loop:
+**Editing in the browser.** Opened straight from disk, the editor can only save by downloading a copy — it has no way to write back. Run it through the local server instead and the loop closes:
 
-1. Open `bloom-civic-host-invitation-editable.html` in a browser, double-click text to edit
-2. Click **"Save editable copy"** (not "Download clean copy" — the script needs the editable version as input)
-3. Run `./sync-edits.sh`, review the diff, confirm
+```
+./edit-server.py
+```
 
-It regenerates the clean copy from the editable one on every run, so the two can't drift. Pass `-y` to skip the prompt, or a string to set the commit subject. The clean copy is derived output — editing it by hand will be overwritten on the next sync.
+Open the URL it prints, double-click any text, click **"Save to repo"**. That writes the editable file, regenerates the clean copy, commits, and pushes. No GitHub token anywhere — it uses this machine's existing git credentials and listens only on loopback. `--no-push` commits without pushing; `--port N` if 8765 is taken.
+
+The "Save to repo" button removes itself unless the page is served from localhost, so opening the file directly (or hitting the copy published on Pages) still just offers the two download buttons.
+
+*Fallback:* if you've already edited via the download flow, `./sync-edits.sh` picks the newest `~/Downloads` copy and does the same thing (`-y` skips the prompt; a string argument sets the commit subject).
+
+Either path regenerates the clean copy from the editable one, so the two can't drift — but that also means **the clean copy is derived output**, and hand-edits to it get overwritten on the next save. Change the editable file, or change both.
 
 ---
 

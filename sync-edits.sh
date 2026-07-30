@@ -80,35 +80,7 @@ fi
 
 # --- update the editable copy, then regenerate the clean copy from it --------
 cp "$newest" "$EDITABLE"
-
-python3 - "$EDITABLE" "$CLEAN" <<'PY'
-import re, sys
-
-src, dst = sys.argv[1], sys.argv[2]
-html = open(src, encoding="utf-8").read()
-
-# Remove the same three blocks the in-page "Download clean copy" button strips.
-for label, pattern in (
-    ("editor stylesheet", r'<style id="editor-style">.*?</style>\n?'),
-    ("editor toolbar",    r'<div id="editor-ui">.*?</div>\n?'),
-    ("editor script",     r'<script id="editor-script">.*?</script>\n?'),
-):
-    html, n = re.subn(pattern, "", html, flags=re.S)
-    if n != 1:
-        sys.exit(f"Expected exactly one {label} block, found {n}. "
-                 "The editable file's structure may have changed — "
-                 "regenerate the clean copy by hand.")
-
-# Drop attributes the in-browser editor leaves on elements it touched.
-html = re.sub(r'\s+data-ce="[^"]*"', "", html)
-html = re.sub(r'\s+contenteditable="[^"]*"', "", html)
-
-# Removing those blocks leaves a variable number of blank lines at the end.
-# Pin it so repeat syncs don't produce phantom whitespace diffs.
-html = re.sub(r'\n+(</body></html>\s*)$', r'\n\n\1', html)
-
-open(dst, "w", encoding="utf-8").write(html)
-PY
+python3 make-clean.py "$EDITABLE" "$CLEAN"
 
 # --- show what changed, confirm, commit -------------------------------------
 if git diff --quiet -- "$EDITABLE" "$CLEAN"; then
