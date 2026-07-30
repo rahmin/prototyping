@@ -12,11 +12,18 @@ Maintainer: Rahmin Sarabi, Co-Executive Director, BLOOM.
 |---|---|
 | `bloom-civic-host-offering.md` | **Source of truth.** Full offering / prospectus. Deep-dive sent to hosts who have leaned in. |
 | `bloom-civic-host-invitation-editable.html` | Condensed recruitment landing page. Has a built-in double-click-to-edit toolbar. |
-| `bloom-civic-host-invitation.html` | Clean copy of the landing page, editor stripped. **This is the one to publish or send.** |
+| `bloom-civic-host-invitation.html` | Clean copy of the landing page, editor stripped. **This is the one to publish or send.** Generated from the editable file — don't hand-edit it if you're using `sync-edits.sh`. |
+| `sync-edits.sh` | Pulls browser edits back into the repo: takes the newest `bloom-civic-host-invitation-editable*.html` from `~/Downloads`, regenerates the clean copy from it, shows a word-diff, commits, pushes. |
 
 **Keep the two in sync.** When copy changes in one, check whether it belongs in the other. The markdown is authoritative; the HTML is a condensed, editorialized cut of it — it deliberately omits readiness tiers and full grant mechanics. The HTML *does* include a simplified 4-stop version of the timeline (Commission/Engage/Deliberate/Carry & Federate with rough month ranges) in its own "Time and effort" section right after the deal section — it's framed around workload/pacing per phase (deliberately distinct from "How it works," which covers what each phase does), not a duplicate of the full onboarding→federate phase table in the markdown.
 
-**Known friction:** the HTML's double-click editing saves by downloading a new file rather than writing back to disk, so browser edits don't land in git automatically. Prefer editing the HTML directly here, or regenerate it from the markdown, to avoid drift.
+**Editing in the browser.** The double-click editor can't write back to disk — it saves by downloading a copy — so `sync-edits.sh` closes that loop:
+
+1. Open `bloom-civic-host-invitation-editable.html` in a browser, double-click text to edit
+2. Click **"Save editable copy"** (not "Download clean copy" — the script needs the editable version as input)
+3. Run `./sync-edits.sh`, review the diff, confirm
+
+It regenerates the clean copy from the editable one on every run, so the two can't drift. Pass `-y` to skip the prompt, or a string to set the commit subject. The clean copy is derived output — editing it by hand will be overwritten on the next sync.
 
 ---
 
