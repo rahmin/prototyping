@@ -24,12 +24,13 @@ Maintainer: Rahmin Sarabi, Co-Executive Director, BLOOM.
 
 Six regions run one arc, adapted locally. BLOOM enables; the host convenes and carries.
 
-**The spine:** Commission → Deliberate → Carry → Federate
+**The spine:** Commission → Convene → Deliberate → Carry → Federate
 
 1. **Commission** — host assembles a cross-partisan steering committee that frames the question and pre-commits to act on the answer. (This pre-commitment is the load-bearing move; it's what keeps the assembly from being advisory only.)
-2. **Deliberate** — broad public engagement via CivicOS/OpenPoll and community conversations, then a lottery-selected, demographically representative Civic Assembly.
-3. **Carry** — supermajority recommendations advanced with local institutions, city/county officials, school boards, and state representatives where state policy is implicated.
-4. **Federate** — findings across all six sites synthesized for leverage at larger scales: state, national, and direct to private and civil society actors.
+2. **Convene** — broad public engagement via CivicOS/OpenPoll and community conversations, getting residents into the room (and online) to make sense of the issue together.
+3. **Deliberate** — a lottery-selected, demographically representative Civic Assembly works through expert input and trade-offs to a considered judgment.
+4. **Carry** — supermajority recommendations advanced with local institutions, city/county officials, school boards, and state representatives where state policy is implicated.
+5. **Federate** — findings across all six sites synthesized for leverage at larger scales: state, national, and direct to private and civil society actors.
 
 **The five subtopic lanes** (shared across the cohort so findings can federate):
 data centers & AI infrastructure · K–12 education · jobs & workforce · affordability & wealth · public involvement in decision-making *(meta)*
@@ -107,7 +108,7 @@ Distinct civic identity, deliberately non-partisan.
 
 ## Open threads
 
-- Anchor **"Model Map" visual** for the four-verb arc — the highest-leverage asset for helping a prospective host grok the model in under a minute. Ideas explored: a "walk the arc" interactive, the deal as a two-sided balance, a US cohort map with two anchors pinned and four open slots, the lanes as a strip, the readiness ladder as a ramp. Build feedback prompts into the artifact ("where does this arc break for you?") to get per-component signal rather than "looks nice."
+- Anchor **"Model Map" visual** for the five-verb arc — the highest-leverage asset for helping a prospective host grok the model in under a minute. Ideas explored: a "walk the arc" interactive, the deal as a two-sided balance, a US cohort map with two anchors pinned and four open slots, the lanes as a strip, the readiness ladder as a ramp. Build feedback prompts into the artifact ("where does this arc break for you?") to get per-component signal rather than "looks nice."
 - **PDF** of the full offering for attachment.
 - **Internal design-spec companion** — budget bands per bucket, staffing load per host, invitation-only vs. public-RFP mechanics. Deliberately kept out of the host-facing document.
 - Possible **funder-facing variant** of the landing page (evidence register, "demonstrating," named backing).
