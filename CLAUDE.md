@@ -26,7 +26,7 @@ Six regions run one arc, adapted locally. BLOOM enables; the host convenes and c
 
 **The spine:** Commission → Engage → Deliberate → Carry → Federate
 
-1. **Commission** — host assembles a cross-partisan steering committee that frames the question and pre-commits to act on the answer. (This pre-commitment is the load-bearing move; it's what keeps the assembly from being advisory only.)
+1. **Commission** — host assembles a cross-partisan steering committee that engages and listens to discern which question to take up and how to frame it — including a political landscape assessment BLOOM helps them conduct — then pre-commits to act on the answer. (This pre-commitment is the load-bearing move; it's what keeps the assembly from being advisory only. The question is discerned through listening, not framed upfront by the committee alone — don't revert to "frames the question" language.)
 2. **Engage** — broad public engagement via CivicOS/OpenPoll and community conversations, getting residents into the room (and online) to make sense of the issue together.
 3. **Deliberate** — a lottery-selected, demographically representative Civic Assembly works through expert input and trade-offs to a considered judgment.
 4. **Carry** — supermajority recommendations advanced with local institutions, city/county officials, school boards, and state representatives where state policy is implicated.

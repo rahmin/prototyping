@@ -66,7 +66,7 @@ Every host runs the same five-part spine, customized to local ground. The seven 
 
 **Commission → Engage → Deliberate → Carry → Federate**
 
-**1. Commission.** You assemble a **cross-partisan steering committee** — pole-spanning local organizations and respected residents — that identifies and frames a question the community will take up and *pre-commits to receive and act on the result.* This is the crucial move: the assembly carries real weight because it is chartered by a body that has already agreed to act on its answer. The steering committee is your local impact table in embryo.
+**1. Commission.** You assemble a **cross-partisan steering committee** — pole-spanning local organizations and respected residents — who engage and listen to discern which question the community should take up and how to frame it, informed by a political landscape assessment BLOOM helps you conduct. The committee then *pre-commits to receive and act on the result.* This is the crucial move: the assembly carries real weight because it is chartered by a body that has already agreed to act on its answer. The steering committee is your local impact table in embryo.
 
 **2. Engage.** Broad public engagement via CivicOS / OpenPoll and community conversations — getting large numbers of residents into the room (and online) to make sense of the issue together, surfacing where common ground actually lives beneath the noise and the real-life experiences and hopes people have on it. This is how you build a public — surfacing the lived experience and shared ground that a poll would flatten.
 
