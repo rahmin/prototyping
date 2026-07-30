@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLOOM Civic Host Cohort — An invitation</title>
+<meta name="description" content="BLOOM is assembling its first cohort of six communities to put the informed, common-sense voice of the public at the center of the decisions AI is forcing on our towns, schools, and public budgets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&amp;family=Public+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2F3EC;
+    --paper-2:#FBFBF6;
+    --ink:#15332A;
+    --pine:#234E3E;
+    --pine-soft:#4C7A65;
+    --gold:#BE862B;
+    --gold-dark:#9C6D1E;
+    --sand:#E7E0CD;
+    --line:rgba(21,51,42,.14);
+    --line-on-dark:rgba(242,243,236,.18);
+    color-scheme:light;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Public Sans",system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.08;letter-spacing:-.01em}
+  a{color:inherit}
+  .eyebrow{
+    font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--pine-soft);
+  }
+  .eyebrow.on-dark{color:var(--gold)}
+
+  /* header */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(242,243,236,.9);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:"Fraunces",serif;font-weight:600;font-size:22px;letter-spacing:.02em}
+  .brand span{color:var(--gold)}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:"Public Sans",sans-serif;font-weight:600;font-size:15px;
+    padding:11px 20px;border-radius:999px;border:1px solid transparent;
+    cursor:pointer;text-decoration:none;transition:transform .15s ease,background .15s ease,box-shadow .15s ease;
+  }
+  .btn-primary{background:var(--gold);color:#241a05}
+  .btn-primary:hover{background:var(--gold-dark);color:#fff;transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--pine);transform:translateY(-1px)}
+  .btn-ghost.on-dark{color:var(--paper);border-color:var(--line-on-dark)}
+  .btn-ghost.on-dark:hover{border-color:var(--gold)}
+  .btn-lg{font-size:17px;padding:15px 30px}
+  a.btn:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+  /* hero */
+  .hero{padding:84px 0 72px}
+  .hero .eyebrow{margin-bottom:22px}
+  .hero h1{font-size:clamp(38px,6vw,66px);max-width:15ch}
+  .hero .lede{font-size:clamp(18px,2.1vw,21px);max-width:56ch;margin:26px 0 34px;color:#33463f}
+  .hero .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .hero .anchor-note{margin-top:26px;font-size:15px;color:var(--pine-soft)}
+  .hero .anchor-note a{color:var(--pine);text-decoration:underline;text-underline-offset:2px}
+
+  /* generic section */
+  section{padding:68px 0}
+  .sec-head{max-width:60ch;margin-bottom:40px}
+  .sec-head h2{font-size:clamp(28px,3.6vw,40px);margin:14px 0 0}
+  .sec-head p{margin-top:16px;color:#33463f;font-size:18px}
+
+  /* problem */
+  .problem{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .problem .body{max-width:62ch;font-size:19px;color:#2b3d37}
+  .problem .examples{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 30px;margin-top:30px}
+  .problem .examples div{padding-left:16px;border-left:2px solid var(--gold);font-size:16px;color:#33463f}
+  @media(max-width:640px){.problem .examples{grid-template-columns:1fr}}
+
+  /* arc — dark signature band */
+  .arc{background:var(--ink);color:var(--paper)}
+  .arc .sec-head h2{color:var(--paper)}
+  .arc .sec-head p{color:#b9cabf}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-on-dark);border:1px solid var(--line-on-dark);border-radius:14px;overflow:hidden}
+  .step{background:var(--ink);padding:28px 24px 32px;position:relative}
+  .step .no{font-family:"Fraunces",serif;font-size:15px;color:var(--gold);font-weight:600;letter-spacing:.06em}
+  .step h3{font-size:23px;color:var(--paper);margin:12px 0 10px}
+  .step p{font-size:15px;color:#bccabf;line-height:1.55}
+  .step::after{content:"";position:absolute;top:38px;right:-1px;width:1px;height:22px}
+  @media(max-width:820px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.steps{grid-template-columns:1fr}}
+
+  .problem .demand{margin-top:28px;max-width:58ch;font-size:17px;color:var(--pine);font-weight:500;
+    padding-left:16px;border-left:3px solid var(--pine-soft)}
+
+  /* toolkit */
+  .tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:820px){.tool-grid{grid-template-columns:1fr}}
+  .tool{background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:26px 26px 24px;
+    border-top:3px solid var(--gold)}
+  .tool h3{font-size:21px;margin-bottom:10px}
+  .tool p{font-size:15.5px;color:#33463f;line-height:1.55}
+
+  /* pull quote */
+  blockquote.pull{margin-top:38px;max-width:64ch;padding:28px 30px;background:var(--paper-2);
+    border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:0 14px 14px 0}
+  blockquote.pull p{font-family:"Fraunces",Georgia,serif;font-size:20px;line-height:1.45;color:var(--ink);font-style:italic}
+  blockquote.pull cite{display:block;margin-top:16px;font-family:"Public Sans",sans-serif;font-style:normal;
+    font-size:14px;font-weight:600;color:var(--pine)}
+  blockquote.pull cite span{display:block;font-weight:400;color:var(--pine-soft);margin-top:3px}
+
+  /* lanes */
+  .lanes .chips{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+  .chip{
+    background:var(--sand);color:#4a3c1c;border-radius:999px;
+    padding:11px 20px;font-weight:500;font-size:16px;
+  }
+  .chip .meta{color:var(--gold-dark);font-weight:600;font-size:13px;margin-left:6px}
+  .lanes .foot{max-width:58ch;color:#33463f}
+
+  /* deal */
+  .deal{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media(max-width:760px){.cols{grid-template-columns:1fr}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:30px 30px 26px}
+  .card.commit{background:transparent;border-style:dashed}
+  .card h3{font-size:22px;margin-bottom:6px}
+  .card .kicker{font-size:14px;color:var(--pine-soft);font-weight:600;margin-bottom:18px}
+  .card ul{list-style:none}
+  .card li{padding:9px 0 9px 26px;position:relative;font-size:16px;border-top:1px solid var(--line);color:#2b3d37}
+  .card li:first-child{border-top:none}
+  .card li::before{content:"";position:absolute;left:2px;top:17px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+  .card.commit li::before{background:transparent;border:1.5px solid var(--pine-soft)}
+
+  /* who */
+  .who .body{max-width:64ch;font-size:18px;color:#2b3d37}
+  .who .body strong{font-weight:600;color:var(--ink)}
+  .stats{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .stat{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:18px 24px;min-width:150px}
+  .stat .n{font-family:"Fraunces",serif;font-size:32px;font-weight:600;color:var(--pine);line-height:1}
+  .stat .l{font-size:14px;color:var(--pine-soft);margin-top:6px}
+
+  /* cohort */
+  .cohort{background:var(--paper-2);border-top:1px solid var(--line)}
+  .cohort .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  @media(max-width:760px){.cohort .grid{grid-template-columns:1fr;gap:26px}}
+  .cohort p{color:#33463f;font-size:18px;max-width:52ch}
+  .fed{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .fed .dots{display:flex;gap:9px}
+  .fed .dots i{width:16px;height:16px;border-radius:50%;background:var(--pine-soft);display:block}
+  .fed .arrow{color:var(--gold);font-size:22px}
+  .fed .one{width:26px;height:26px;border-radius:50%;background:var(--gold)}
+  .fed .cap{font-size:14px;color:var(--pine-soft);flex-basis:100%}
+
+  /* final cta */
+  .final{background:var(--ink);color:var(--paper);text-align:center}
+  .final h2{font-size:clamp(30px,4.4vw,48px);color:var(--paper);max-width:16ch;margin:0 auto 20px}
+  .final p{max-width:52ch;margin:0 auto 30px;color:#c3d1c7;font-size:19px}
+  .final .note{font-size:14px;color:#8fa89b;margin-top:18px}
+
+  /* footer */
+  footer.site{padding:44px 0;border-top:1px solid var(--line);background:var(--paper)}
+  footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:baseline}
+  footer.site .tag{font-size:14px;color:var(--pine-soft);max-width:40ch}
+  footer.site .links{display:flex;gap:22px;flex-wrap:wrap;font-size:14px}
+  footer.site .links a{color:var(--pine);text-decoration:none}
+  footer.site .links a:hover{text-decoration:underline}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .btn{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">BLOOM<span>.</span></div>
+    <a class="btn btn-primary" href="https://bloomproject.us/apply">Express interest</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">First cohort · Six regions · Fall 2027</div>
+      <h1>On the biggest decisions, we should all have a seat at the table.</h1>
+      <p class="lede">BLOOM is assembling a cohort of six communities to put the informed, common-sense voice of the public at the center of the decisions AI is bringing to their towns, schools, workforces, and public budgets -- and to shape decisions in state houses and beyond.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary btn-lg" href="https://bloomproject.us/apply">Express interest</a>
+        <a class="btn btn-ghost btn-lg" href="#how">See how it works</a>
+      </div>
+      <p class="anchor-note">Building on our anchor partners in <a href="https://oregon.bloomproject.us">Central Oregon</a> and <a href="https://utah.bloomproject.us">Utah</a>.</p>
+    </div>
+  </section>
+
+  <section class="problem reveal in">
+    <div class="wrap">
+      <div class="eyebrow">Why now</div>
+      <p class="body" style="margin-top:16px">As AI reaches deeper into our economy and public life, decisions are being made about our communities largely without us. Right now almost no community has a legitimate, cross-partisan way to weigh in on where there is super majority agreement across the political divides — and to turn that agreement into change.</p>
+      <div class="examples">
+        <div>Data centers site next to neighborhoods.</div>
+        <div>Districts adopt classroom AI overnight.</div>
+        <div>Public dollars underwrite private infrastructure.</div>
+        <div>Residents are scored by systems they never consented to.</div>
+      </div>
+      <p class="demand">Packed hearings and overflowing comment periods show residents want a real say. Most communities simply have no legitimate way to give them one.</p>
+    </div>
+  </section>
+
+  <section class="arc reveal in" id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow on-dark">How it works</div>
+        <h2>One arc, run by you, supported by us.</h2>
+        <p>Every host runs the same four-part spine, adapted to local ground. You convene and carry; BLOOM trains, resources, and connects.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="no">01</div><h3>Commission</h3>
+          <p>A cross-partisan steering committee frames the question and commits, in advance, to act on the answer.</p>
+        </div>
+        <div class="step">
+          <div class="no">02</div><h3>Deliberate</h3>
+          <p>Broad public engagement online and in person, then a panel of residents chosen by lottery — demographically representative of your region — works through expert input and trade-offs to a considered answer.</p>
+        </div>
+        <div class="step">
+          <div class="no">03</div><h3>Carry</h3>
+          <p>Recommendations reaching supermajority agreement are advanced with local institutions, city and county officials, school boards, and state representatives where state policy is implicated.</p>
+        </div>
+        <div class="step">
+          <div class="no">04</div><h3>Federate</h3>
+          <p>Findings from all six regions combine into a mandate with weight at larger scales — state, national, and direct to private and civil society actors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tools reveal in">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">The toolkit</div>
+        <h2>Technology that listens at scale.</h2>
+        <p>CivicOS is our own civic technology stack, co-designed to your context. It is open source and free to use — yours to keep, adapt, and run long after the cohort ends. It does the work of hearing a whole community, so your team can focus on organizing it.</p>
+      </div>
+      <div class="tool-grid">
+        <div class="tool">
+          <h3>OpenPoll</h3>
+          <p>Map the opinion landscape of your whole region. Residents share their own views and respond to their neighbors', and the analysis reveals where common ground already exists to build from — along with the questions still genuinely open, which are exactly the ones deliberation can unlock.</p>
+        </div>
+        <div class="tool">
+          <h3>Live conversation capture</h3>
+          <p>Transcription tools for community meetings, in person and online, so what people actually say in the room becomes part of the record instead of evaporating. Small-group conversations at scale, captured and synthesized.</p>
+        </div>
+        <div class="tool">
+          <h3>Reporting &amp; analysis</h3>
+          <p>Clear reporting for your coalition and for the public — showing where agreement is strong, where it divides, and what that means for the path forward. Shared evidence everyone can navigate by.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lanes reveal in">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">What you'll take up</div>
+        <h2>Five shared lanes.</h2>
+      </div>
+      <div class="chips">
+        <span class="chip">Data centers &amp; AI infrastructure</span>
+        <span class="chip">K–12 education</span>
+        <span class="chip">Jobs &amp; workforce</span>
+        <span class="chip">Affordability &amp; wealth</span>
+        <span class="chip">Public involvement in decision-making<span class="meta">meta</span></span>
+      </div>
+      <p class="foot">You localize one lane to a concrete, decidable question for your context. Because every region works from the same lanes, local wins add up to something larger.</p>
+    </div>
+  </section>
+
+  <section class="deal reveal in">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">The partnership</div>
+        <h2>An honest offer, both sides.</h2>
+      </div>
+      <div class="cols">
+        <div class="card">
+          <div class="kicker">What you get</div>
+          <h3>We resource and enable.</h3>
+          <ul>
+            <li>A full assembly arc, guided end to end</li>
+            <li>Coalition-building support, from wherever you start</li>
+            <li>Public-engagement and problem-solving playbooks</li>
+            <li>Matching grants for engagement and the assembly</li>
+            <li>Facilitator and organizer training for your own people</li>
+            <li>CivicOS tools — open source and free — co-designed to your context: opinion mapping, live conversation capture, and reporting</li>
+            <li>A peer cohort of five other regions</li>
+          </ul>
+        </div>
+        <div class="card commit">
+          <div class="kicker">What you commit to</div>
+          <h3>You convene and carry.</h3>
+          <ul>
+            <li>Convene and chair a cross-partisan steering committee</li>
+            <li>Own local delivery, with a team we train</li>
+            <li>Cost-share the matching grant</li>
+            <li>Meet participation floors for a legitimate process</li>
+            <li>Carry the findings into real decision venues</li>
+            <li>Contribute your findings into the federation</li>
+            <li>Move on the shared cohort timeline</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="who reveal in">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Who we are</div>
+        <h2>Tested practice, not a pilot on you.</h2>
+      </div>
+      <p class="body">This method has been run more than a thousand times around the world, and the pattern is consistent enough to plan around. We are bringing tested practice to your community, along with the tools and training to run it yourselves.</p>
+      <p class="body" style="margin-top:18px">BLOOM is a team of civic practitioners, technologists, and organizers. Our method builds on the Civic Jury tradition of <strong>The Jefferson Center</strong>, the large-scale citizen deliberations of <strong>AmericaSpeaks</strong>, and open-source listening technology, reviewed by leaders in the field including <strong>Audrey Tang</strong>. Led by <strong>Rahmin Sarabi</strong> and <strong>Clara Long</strong>, with prior work spanning the Fort Collins Civic Assembly and Engaged California. We operate under the Association for Civic Infrastructure.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">1,000+</div><div class="l">deliberations run worldwide</div></div>
+        <div class="stat"><div class="n">~1,000</div><div class="l">residents engaged in our pilots</div></div>
+        <div class="stat"><div class="n">2</div><div class="l">states: Utah &amp; Oregon</div></div>
+        <div class="stat"><div class="n">4</div><div class="l">cross-partisan supermajority findings</div></div>
+      </div>
+      <blockquote class="pull">
+        <p>We chose this approach because it has been used more than a thousand times around the world, and the pattern is consistent: when a representative group of everyday people gets good information and time to deliberate, they produce recommendations that are practical, well-reasoned, and trusted across political lines.</p>
+        <cite>Catherine Eslinger — Director of Civic Engagement, Mormon Women for Ethical Government <span>· Utah Common Ground, anchor partner</span></cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="cohort reveal in">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <div class="eyebrow">The cohort</div>
+          <h2 class="sec-head" style="margin:14px 0 18px;font-size:clamp(26px,3.4vw,36px)">Six regions, one federated effort.</h2>
+          <p>Two anchors — Central Oregon and Utah — and four new hosts joining this Fall. A flexible arc of roughly five to nine months from onboarding to assembly, paced to where your coalition starts.</p>
+        </div>
+        <div class="fed" aria-hidden="true">
+          <span class="dots"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="arrow">→</span>
+          <span class="one"></span>
+          <span class="cap">Six local findings converge into one mandate.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final reveal in">
+    <div class="wrap">
+      <h2>Bring this to your community.</h2>
+      <p>If your organization convenes across difference, and there's a live AI question worth deciding where you are, we'd like to hear from you.</p>
+      <a class="btn btn-primary btn-lg" href="https://bloomproject.us/apply">Express interest</a>
+      <p class="note">A short form to start the conversation. We follow up to explore fit together.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="tag">BLOOM — open civic infrastructure for the decisions that matter most. A program of the Association for Civic Infrastructure.</div>
+    <div class="links">
+      <a href="https://oregon.bloomproject.us">Central Oregon</a>
+      <a href="https://utah.bloomproject.us">Utah</a>
+      <a href="https://bloomproject.us/apply">Express interest</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      els.forEach(function(e){e.classList.add('in')});
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+      });
+    },{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+
+
+</body></html>
