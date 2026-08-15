@@ -1,8 +1,13 @@
-# BLOOM Civic Host Cohort — recruitment materials
+# BLOOM prototyping repo
 
-Working repo for the offering document and recruitment landing page for BLOOM's **first Civic Host cohort** (six regions, launching Fall 2026).
+Working repo for BLOOM prototypes. Maintainer: Rahmin Sarabi, Co-Executive Director, BLOOM.
 
-Maintainer: Rahmin Sarabi, Co-Executive Director, BLOOM.
+Two independent artifacts live here — they share no code, styling, or tooling, so a change to one never affects the other:
+
+1. **Civic Host Cohort recruitment materials** — offering document and landing page for BLOOM's first Civic Host cohort (six regions, launching Fall 2026). Most of this file is about these.
+2. **Utah delegate background page** — `utah-decision-map-delegates.html`, prepared for delegates to the Utah Solutions Forum (18–19 September 2026).
+
+Everything below concerns the recruitment materials unless it names the Utah page.
 
 ---
 
@@ -16,6 +21,7 @@ Maintainer: Rahmin Sarabi, Co-Executive Director, BLOOM.
 | `edit-server.py` | **Preferred editing path.** Serves the editable page on loopback and adds a "Save to repo" button that writes, regenerates, commits, and pushes in one click. |
 | `sync-edits.sh` | Fallback for when you've edited via the download flow: takes the newest `bloom-civic-host-invitation-editable*.html` from `~/Downloads`, regenerates the clean copy, shows a word-diff, commits, pushes. |
 | `make-clean.py` | Shared strip logic that derives the clean copy from the editable one. Both of the above call it, so the transform lives in exactly one place. |
+| `utah-decision-map-delegates.html` | Separate artifact — delegate background for the Utah Solutions Forum. Self-contained, its own design system (Archivo / Source Serif 4 / IBM Plex Mono), content built from JS data arrays at the bottom of the file. **Not** covered by the editor tooling above; edit it directly. |
 
 **Keep the two in sync.** When copy changes in one, check whether it belongs in the other. The markdown is authoritative; the HTML is a condensed, editorialized cut of it — it deliberately omits readiness tiers and full grant mechanics. The HTML *does* include a simplified 4-stop version of the timeline (Commission/Engage/Deliberate/Carry & Federate with rough month ranges) in its own "Time and effort" section right after the deal section — it's framed around workload/pacing per phase (deliberately distinct from "How it works," which covers what each phase does), not a duplicate of the full onboarding→federate phase table in the markdown.
 
