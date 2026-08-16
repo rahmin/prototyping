@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where the public can be heard — Utah Solutions Forum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,62..125,400&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14181C; --ink-2:#2F373D; --mute:#68736E;
+  --paper:#F0F2ED; --paper-2:#E4E8DF; --paper-3:#DCE1D6;
+  --grid:#CDD3C9; --grid-fine:#DEE2D9;
+  --strong:#2E6B63; --strong-s:#DDE9E5;
+  --mid:#B8892B;    --mid-s:#F2EAD7;
+  --none:#C2456B;   --none-s:#F7E3E9;
+  --rule:1px solid var(--grid);
+  --f-d:"Archivo",system-ui,sans-serif;
+  --f-b:"Source Serif 4",Georgia,serif;
+  --f-m:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+ *{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--f-b);font-size:19px;line-height:1.62;
+  background-image:linear-gradient(var(--grid-fine) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-fine) 1px,transparent 1px);
+  background-size:52px 52px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px;background:var(--paper);
+  border-left:var(--rule);border-right:var(--rule)}
+h1,h2,h3{font-family:var(--f-d);margin:0;letter-spacing:-0.014em;font-weight:700}
+h1{font-variation-settings:"wdth" 110;font-size:clamp(2.2rem,5.4vw,4.1rem);
+  line-height:1.0;font-weight:800}
+h2{font-variation-settings:"wdth" 106;font-size:clamp(1.45rem,2.7vw,2rem);line-height:1.1}
+h3{font-size:1.06rem;line-height:1.3}
+.mono{font-family:var(--f-m);font-size:.7rem;letter-spacing:.13em;
+  text-transform:uppercase;font-weight:500}
+.lede{font-size:clamp(1.08rem,1.6vw,1.3rem);line-height:1.55;max-width:60ch;color:var(--ink-2)}
+p{margin:0 0 1em}
+a{color:var(--strong)}
+:focus-visible{outline:2px solid var(--none);outline-offset:3px}
+
+.notice{margin:0 -26px;padding:13px 26px;background:var(--paper-3);
+  border-bottom:2px solid var(--ink);display:flex;gap:14px;flex-wrap:wrap;align-items:baseline}
+.notice .mono{color:var(--ink);font-weight:600;flex:none}
+.notice span:last-child{font-size:.9rem;color:var(--ink-2);line-height:1.4}
+
+.hero{padding:56px 0 48px;border-bottom:2px solid var(--ink)}
+.hero h1{max-width:16ch;margin-bottom:26px}
+section{border-bottom:2px solid var(--ink);padding:56px 0}
+section:last-of-type{border-bottom:none}
+.head{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px}
+.num{font-family:var(--f-m);font-size:.72rem;letter-spacing:.14em;color:var(--mute);
+  font-weight:600}
+.sub{max-width:62ch;color:var(--ink-2);margin:14px 0 34px}
+
+/* --- how to read --- */
+.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));
+  gap:0;border-top:var(--rule);border-left:var(--rule)}
+.key{border-right:var(--rule);border-bottom:var(--rule);padding:20px 18px}
+.key .mark{font-family:var(--f-m);font-weight:600;font-size:.78rem;letter-spacing:.1em;
+  padding:3px 9px;display:inline-block;margin-bottom:10px}
+.m-v{background:var(--strong-s);color:var(--strong)}
+.m-s{background:var(--mid-s);color:var(--mid)}
+.m-i{background:var(--none-s);color:var(--none)}
+.key p{font-size:.92rem;line-height:1.5;margin:0;color:var(--ink-2)}
+
+.gloss{border-top:var(--rule);margin-top:34px}
+.gl{border-bottom:var(--rule);padding:15px 2px;display:grid;
+  grid-template-columns:200px 1fr;gap:22px;align-items:baseline}
+.gl dt{font-family:var(--f-d);font-weight:700;font-size:.98rem;
+  font-variation-settings:"wdth" 104}
+.gl dd{margin:0;font-size:.95rem;line-height:1.5;color:var(--ink-2)}
+
+/* --- standing scale --- */
+.scale{border-top:2px solid var(--ink)}
+.band{border-bottom:var(--rule);padding:22px 0;display:grid;
+  grid-template-columns:250px 1fr;gap:26px;align-items:start}
+.band-l{display:flex;gap:12px;align-items:flex-start}
+.bar{width:5px;flex:none;align-self:stretch;min-height:44px;border-radius:1px}
+.b1{background:var(--strong)} .b2{background:var(--strong);opacity:.55}
+.b3{background:var(--mid)} .b4{background:var(--mid);opacity:.5}
+.b5{background:var(--none)}
+.band-l h3{margin-bottom:5px}
+.band-l p{font-size:.87rem;line-height:1.42;color:var(--mute);margin:0}
+.arenas{display:flex;gap:9px;flex-wrap:wrap;padding-top:2px}
+.arena{border:var(--rule);background:var(--paper-2);padding:9px 14px;
+  font-family:var(--f-d);font-weight:600;font-size:.92rem;
+  font-variation-settings:"wdth" 104;cursor:pointer;text-align:left;
+  transition:background .14s,border-color .14s}
+.arena:hover{border-color:var(--ink);background:var(--paper)}
+.arena[aria-expanded="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.arena small{display:block;font-family:var(--f-m);font-size:.58rem;letter-spacing:.09em;
+  text-transform:uppercase;font-weight:500;opacity:.6;margin-top:3px}
+.detail{grid-column:1/-1;border-left:3px solid var(--strong);background:var(--paper-2);
+  padding:20px 22px;margin-top:16px}
+.detail[hidden]{display:none}
+.detail .dq{font-size:1.02rem;line-height:1.5;margin:0 0 14px;max-width:58ch}
+.detail .dq b{font-family:var(--f-d);font-weight:700;display:block;font-size:.78rem;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.who{font-size:.9rem;color:var(--ink-2);margin:0;line-height:1.5}
+.who b{font-family:var(--f-m);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--mute);font-weight:600;display:block;margin-bottom:4px}
+
+/* --- timeline --- */
+.tl{border-left:2px solid var(--ink);margin-left:8px;padding-left:0}
+.ev{position:relative;padding:0 0 30px 30px}
+.ev::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;
+  border-radius:50%;background:var(--paper);border:2px solid var(--strong)}
+.ev.past::before{border-color:var(--grid);background:var(--grid)}
+.ev.forum::before{width:18px;height:18px;left:-10px;top:3px;background:var(--ink);
+  border-color:var(--ink)}
+.ev .when{font-family:var(--f-m);font-size:.68rem;letter-spacing:.1em;font-weight:600;
+  color:var(--mute);text-transform:uppercase}
+.ev.past .when{color:var(--grid)}
+.ev.forum .when{color:var(--none)}
+.ev h3{margin:4px 0 5px}
+.ev.forum h3{font-size:1.3rem;font-variation-settings:"wdth" 112;font-weight:800;
+  text-transform:uppercase;letter-spacing:.01em}
+.ev p{font-size:.93rem;line-height:1.48;color:var(--ink-2);margin:0;max-width:56ch}
+.ev.past h3,.ev.past p{color:var(--mute)}
+
+/* --- pathways --- */
+.paths{border-top:2px solid var(--ink)}
+.path{border-bottom:var(--rule);padding:20px 2px;display:grid;
+  grid-template-columns:1.5fr 1fr .8fr 1fr;gap:22px;align-items:baseline}
+.path.hd{padding:12px 2px;border-bottom:1px solid var(--ink)}
+.path.hd span{font-family:var(--f-m);font-size:.64rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--mute);font-weight:600}
+.p-what{font-family:var(--f-d);font-weight:700;font-size:1rem;line-height:1.28;
+  font-variation-settings:"wdth" 104}
+.path div{font-size:.92rem;line-height:1.45;color:var(--ink-2)}
+.p-time{font-family:var(--f-m);font-size:.76rem;letter-spacing:.04em;color:var(--ink-2)}
+
+/* --- receivers --- */
+.recv{background:var(--paper-2);border:var(--rule);border-left:4px solid var(--mid);
+  padding:26px 26px 8px}
+.recv h3{margin-bottom:10px}
+.recv p{font-size:.98rem;color:var(--ink-2)}
+.pending{font-family:var(--f-m);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--mid);font-weight:600;background:var(--mid-s);padding:4px 10px;
+  display:inline-block;margin-bottom:14px}
+
+/* --- gaps --- */
+.gaps{border-top:2px solid var(--ink)}
+.gap{border-bottom:var(--rule);padding:22px 2px;display:grid;
+  grid-template-columns:230px 1fr;gap:26px;align-items:baseline}
+.gap p{font-size:.95rem;line-height:1.52;color:var(--ink-2);margin:0;max-width:60ch}
+
+footer{padding:44px 0 70px}
+footer p{font-size:.9rem;color:var(--mute);max-width:60ch;line-height:1.55}
+
+@media (max-width:820px){
+  body{font-size:18px}
+  .band,.gl,.gap{grid-template-columns:1fr;gap:14px}
+  .path{grid-template-columns:1fr;gap:8px}
+  .path.hd{display:none}
+  .path div::before{content:attr(data-l);display:block;font-family:var(--f-m);
+    font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);
+    font-weight:600;margin-bottom:3px}
+}
+</style>
+<style id="editor-style">
+  [data-ce]{cursor:text}
+  [data-ce]:hover{outline:2px dashed rgba(194,69,107,.55);outline-offset:3px;border-radius:2px}
+  [contenteditable="true"]{outline:2px solid var(--none)!important;outline-offset:3px;
+    background:rgba(194,69,107,.07);border-radius:2px}
+  #editor-ui{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;gap:12px;align-items:center;
+    background:var(--ink);color:var(--paper);padding:12px 14px 12px 18px;border-radius:4px;
+    box-shadow:0 8px 30px rgba(0,0,0,.3);font-family:var(--f-d);font-size:13px;
+    max-width:min(92vw,460px);line-height:1.35}
+  #editor-ui .hint{color:#C3CBC5}
+  #editor-ui button{font-family:var(--f-m);font-weight:600;font-size:11px;letter-spacing:.09em;
+    text-transform:uppercase;border:none;border-radius:2px;padding:10px 14px;cursor:pointer;
+    background:var(--none);color:#fff;white-space:nowrap;transition:opacity .15s}
+  #editor-ui button:hover{opacity:.85}
+  #editor-ui button.alt{background:transparent;color:var(--paper);border:1px solid rgba(240,242,237,.4)}
+  #editor-ui button:disabled{opacity:.55;cursor:default}
+  #editor-ui .flash{color:#9BD3B3;font-weight:600}
+  #editor-ui .flash.err{color:#F5A9BC}
+  @media print{#editor-ui{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="notice">
+  <span class="mono">For delegates · Working draft</span>
+  <span>Background for your deliberation. This describes how decisions are made in Utah now. It does not recommend what should change — that is your work.</span>
+</div>
+
+<div class="hero">
+  <h1>Where can the public influence AI decisions in Utah today?</h1>
+  <p class="lede">You have been asked what role the public should have in shaping decisions about AI technology and infrastructure. Before deciding what that role <em>should</em> be, it helps to know what it <em>is</em>. This page sets out which bodies make these decisions, what say the public currently has before each one, and when those opportunities happen.</p>
+</div>
+
+<!-- 00 -->
+<section>
+  <div class="head"><span class="num">00</span><h2>How to read this</h2></div>
+  <p class="sub">Every claim here was checked against a source. Some are firmer than others, and you should know which is which.</p>
+
+  <div class="keys">
+    <div class="key"><span class="mark m-v">Verified</span>
+      <p>Checked against a named source — a statute, an agency page, meeting minutes, a county record — with a date. You can rely on this.</p></div>
+    <div class="key"><span class="mark m-s">Moving</span>
+      <p>True as of the date given, but the situation is changing. Worth asking whether it still holds.</p></div>
+    <div class="key"><span class="mark m-i">Inferred</span>
+      <p>Worked out from related facts rather than found in a source. Treat as a question, not an answer.</p></div>
+  </div>
+
+  <dl class="gloss">
+    <div class="gl"><dt>Public comment</dt><dd>A chance to speak or write to a body before it decides. Often time-limited, and the body is not required to answer you.</dd></div>
+    <div class="gl"><dt>Formal party</dt><dd>A step beyond comment. A party files evidence, questions the other side, and gets a written response. Usually requires a lawyer or an organisation.</dd></div>
+    <div class="gl"><dt>Land use authority</dt><dd>The body that decides what can be built where. Usually a county or city, but in Utah some state entities hold it too.</dd></div>
+    <div class="gl"><dt>Interim committee</dt><dd>Legislators meet between sessions to study subjects and prepare bills. Utah's session is short, so much of the real work happens here.</dd></div>
+    <div class="gl"><dt>Rulemaking</dt><dd>When an agency writes the detailed rules a law leaves to it. Rules are published for a comment period before taking effect.</dd></div>
+    <div class="gl"><dt>Initiative &amp; referendum</dt><dd>Citizen petitions. An initiative proposes a new law; a referendum asks voters to overturn one. Both need signatures, and Utah's thresholds are high.</dd></div>
+  </dl>
+</section>
+
+<!-- 01 -->
+<section>
+  <div class="head"><span class="num">01</span><h2>What say the public has now</h2></div>
+  <p class="sub">The subjects in your remit sit at different places on this scale. The scale describes what the law currently provides — not how important a subject is, and not how much anyone cares about it. Select a subject to see what gets decided and who decides it.</p>
+
+  <div class="scale" id="scale"></div>
+</section>
+
+<!-- 02 -->
+<section>
+  <div class="head"><span class="num">02</span><h2>When these decisions happen</h2></div>
+  <p class="sub">Dates between now and mid-2027. Some opportunities have already passed; most have not.</p>
+  <div class="tl" id="tl"></div>
+</section>
+
+<!-- 03 -->
+<section>
+  <div class="head"><span class="num">03</span><h2>What can happen to a recommendation</h2></div>
+  <p class="sub">If the Forum recommends something, it has to travel somewhere to take effect. These are the routes, ordered by how many people have to agree. The ones near the top are slow and expensive but reach further; the ones near the bottom are quick but bind only one body.</p>
+
+  <div class="paths">
+    <div class="path hd"><span>Route</span><span>Who has to act</span><span>How long</span><span>Who can stop it</span></div>
+    <div id="paths"></div>
+  </div>
+
+  <div class="recv" style="margin-top:38px">
+    <span class="pending">To be confirmed before the Forum</span>
+    <h3>Who has agreed to respond</h3>
+    <p>A <strong>receiver</strong> is a body that agrees in advance to take up your recommendations on the record, by a set date. Agreeing to respond is not agreeing to say yes. A <strong>carrier</strong> is a different thing: an organisation that campaigns for a recommendation after you go home. A body cannot carry a petition to itself, so receivers and carriers are always different people.</p>
+    <p>This section will list the bodies that have committed to respond, and by when. Ask your organisers where that stands — it is a fair question, and the answer shapes what your recommendations are worth.</p>
+  </div>
+</section>
+
+<!-- 04 -->
+<section>
+  <div class="head"><span class="num">04</span><h2>Where no one currently holds the question</h2></div>
+  <p class="sub">These are not complaints about decisions that went the wrong way. They are places where the law provides no way for the public to be heard at all, because no such route was ever created.</p>
+  <div class="gaps" id="gaps"></div>
+</section>
+
+<footer>
+  <p>Prepared as background for delegates to the Utah Solutions Forum, 18–19 September 2026. Compiled from Utah statutes, agency records, legislative committee minutes, county records and news reporting, with research assistance from an AI system and review by the Forum's organisers. Where a claim is marked <em>inferred</em>, it has not been confirmed against a source and should be treated as an open question.</p>
+</footer>
+
+</div>
+
+<script>
+const BANDS=[
+ {c:"b1",t:"The law requires a public meeting",
+  s:"A body must hold a meeting and take comment before it decides.",
+  a:[{id:"edu",n:"Schools and classrooms",m:"Verified",
+      q:"Whose meeting is the decision made in, and who gets to speak at it?",
+      w:"Every Utah school district must adopt a policy on AI use in its schools. Before adopting it, the district's governing board must hold a public meeting that allows public comment, and must then confirm to the state that the meeting happened. Around ten districts across Cache, Salt Lake and Utah Counties will each do this between December 2026 and June 2027."}]},
+
+ {c:"b2",t:"You can take part, but as a formal party",
+  s:"There is a process, and it is open — but it is built for organisations with lawyers.",
+  a:[{id:"energy",n:"Electricity costs",m:"Verified",
+      q:"Is someone paying an electricity bill a party to a case about that bill, or an audience for it?",
+      w:"The Public Service Commission decides whether the power company can serve a large new customer, what new equipment that needs, and who pays for it. Utilities, large customers and state offices file evidence as parties. Members of the public can speak at a public witness hearing. Those are not the same thing."}]},
+
+ {c:"b3",t:"You can comment if the body allows it",
+  s:"Meetings are open and comment is usually taken, but nothing requires the body to seek it or answer it.",
+  a:[{id:"land",n:"Where data centres get built",m:"Verified",
+      q:"At what point does the public get a right to be heard — and can that right be used up by a decision made before anyone knew a project existed?",
+      w:"Normally a county or city decides what can be built where, and a rezoning carries a public hearing. But some state entities can take land into a 'project area' and then act as the land use authority themselves. Where that happens, the county's agreement is given once and cannot be withdrawn."},
+     {id:"water",n:"Water use",m:"Verified",
+      q:"When a public body learns a project will use a large amount of water, does the public learn it at the same time?",
+      w:"Since July 2026, before approving a large data centre a local authority must notify the state water agencies and the water provider, and operators must report their expected water use. The notice goes to three government bodies. Residents are not among them."},
+     {id:"tax",n:"Tax breaks",m:"Verified",
+      q:"Can the public be heard about a figure nobody has worked out?",
+      w:"Utah exempts qualifying data centres from some sales tax. Because the exemption is applied at the till, the state does not collect figures on how much revenue it gives up each year. The State Auditor has confirmed the information is not readily available and is building a public dashboard."}]},
+
+ {c:"b4",t:"You find out after it is decided",
+  s:"The decision is published once made. There is no notice beforehand and no comment period.",
+  a:[{id:"state",n:"How the state sets AI policy",m:"Verified",
+      q:"When the state agrees to set aside a rule for a particular company, does anyone outside the room find out before it is signed?",
+      w:"Utah's Office of Artificial Intelligence Policy can agree with a company to relax specific Utah regulations for twelve months while a product is tested. These agreements are published once signed. Nothing requires notice or public comment before that."}]},
+
+ {c:"b5",t:"No Utah body holds the question",
+  s:"There is no law, no agency and no venue. Not a closed door — no door.",
+  a:[{id:"work",n:"AI at work",m:"Verified",
+      q:"There is no contested question here, because there is no process.",
+      w:"Utah has passed no law about employers using AI to hire, monitor, evaluate, discipline or dismiss workers. There is no requirement to tell you, no right to see the result, and no body to appeal to. For comparison: a school using generative AI with your child must notify you in writing."}]}
+];
+
+const TL=[
+ {d:"16 September 2026",h:"Legislative interim committees met",p:"Committees studying data centres, energy and taxes met two days before the Forum opens.",k:"past"},
+ {d:"18–19 September 2026",h:"The Forum",p:"Two days. Forty delegates from three counties.",k:"forum"},
+ {d:"21 October 2026",h:"Interim committees meet",p:"The first opportunity after the Forum to put something in front of legislators before the 2027 session.",k:""},
+ {d:"3 November 2026",h:"General election",p:"All state House seats and about half the Senate. A constitutional amendment on citizen petitions is also on the ballot.",k:""},
+ {d:"18 November 2026",h:"Interim committees meet",p:"The last committee meeting date of the year. December is reserved for session preparation.",k:""},
+ {d:"Before 1 December 2026",h:"State model school AI policy due",p:"The State Board of Education must publish the policy that every district builds from.",k:""},
+ {d:"Around 20 December 2026",h:"Cache County pause ends",p:"Cache County paused new data centre applications in June while it writes permanent rules. That pause runs out.",k:""},
+ {d:"19 January 2027",h:"Legislature convenes",p:"Utah's session runs 45 days. Bills that miss the clock die whether or not anyone objected to them.",k:""},
+ {d:"By 1 July 2027",h:"School districts adopt AI policies",p:"Each district must adopt its own, after a public meeting. Around ten across the three counties.",k:""},
+ {d:"1 July 2027",h:"State AI law expires",p:"The law creating the Office of Artificial Intelligence Policy runs out unless the Legislature renews it.",k:""}
+];
+
+const PATHS=[
+ {w:"One body changes its own policy",a:"A school board, a county council, a city council",t:"Weeks to months",s:"That body, by deciding otherwise"},
+ {w:"A state agency writes it into its rules",a:"An agency, during a rulemaking",t:"3–12 months",s:"The comment period closing before anyone files"},
+ {w:"A legislative committee studies it",a:"A committee, by voting to take it up",t:"Two meeting dates left in 2026",s:"A full agenda"},
+ {w:"A legislator introduces a bill",a:"One legislator, plus committee and floor votes",t:"12–18 months",s:"The 45-day clock, more often than a vote against"},
+ {w:"A bill attached to the 2027 expiry",a:"Whoever writes the renewal of the state AI law",t:"The 2027 session",s:"A clean renewal that changes only the date"},
+ {w:"County petition for a new local law",a:"Voters gathering signatures across the county",t:"Many months",s:"Signature spread requirements across county areas"},
+ {w:"County petition to overturn a land use decision",a:"Voters, quickly",t:"Very short window",s:"Being classed as an administrative act, which cannot be petitioned"},
+ {w:"Statewide petition for a new law",a:"A statewide organisation with paid signature gatherers",t:"About a year",s:"Reaching the threshold in 26 of Utah's 29 senate districts"}
+];
+
+const GAPS=[
+ {h:"Land taken into a state project area",p:"A state entity can take land into a project area and become the land use authority for it. No public hearing is required before that happens, and the county's agreement cannot be withdrawn afterwards or put to voters."},
+ {h:"AI used in employment decisions",p:"No notice, no right to see how a decision was reached, no appeal, no body to complain to. One of the four subjects in your remit has no venue at all."},
+ {h:"The state's model school AI policy",p:"Before adopting core school standards, the state board must publish a draft, take 90 days of comment, and hold three public hearings. For the model AI policy, none of that applies. The public meeting requirement falls on districts, not on the state."},
+ {h:"Agreements setting aside regulations",p:"Nothing requires notice or comment before the state agrees to relax a rule for a named company. The agreement is published after it is signed."},
+ {h:"Notice of large water commitments",p:"Before a large data centre is approved, three government bodies must be told. Residents of the affected area are not among them."},
+ {h:"The cost of the tax exemption",p:"No figure exists for what the data centre tax exemption costs each year. A hearing cannot be held about a number nobody has."},
+ {h:"A commitment with no method",p:"A May 2026 executive order tells state agencies to carry out extensive public engagement on data centres. It names no agency, no venue, no timeline and nothing they must produce."}
+];
+
+/* build scale */
+const sc=document.getElementById("scale");
+BANDS.forEach((b,bi)=>{
+  const row=document.createElement("div");row.className="band";
+  const chips=b.a.map((a,i)=>
+    `<button class="arena" aria-expanded="false" data-b="${bi}" data-i="${i}">
+       ${a.n}<small>${a.m}</small></button>`).join("");
+  row.innerHTML=`<div class="band-l"><span class="bar ${b.c}"></span>
+      <div><h3>${b.t}</h3><p>${b.s}</p></div></div>
+    <div class="arenas">${chips}</div>
+    <div class="detail" hidden></div>`;
+  sc.appendChild(row);
+});
+sc.addEventListener("click",e=>{
+  const btn=e.target.closest(".arena");if(!btn)return;
+  const row=btn.closest(".band"),det=row.querySelector(".detail");
+  const open=btn.getAttribute("aria-expanded")==="true";
+  row.querySelectorAll(".arena").forEach(b=>b.setAttribute("aria-expanded","false"));
+  if(open){det.hidden=true;return;}
+  btn.setAttribute("aria-expanded","true");
+  const a=BANDS[btn.dataset.b].a[btn.dataset.i];
+  det.innerHTML=`<p class="dq"><b>The question this raises</b>${a.q}</p>
+    <p class="who"><b>What gets decided, and by whom</b>${a.w}</p>`;
+  det.hidden=false;
+});
+
+/* timeline */
+document.getElementById("tl").innerHTML=TL.map(e=>
+ `<div class="ev ${e.k}"><span class="when">${e.d}</span><h3>${e.h}</h3><p>${e.p}</p></div>`).join("");
+
+/* pathways */
+document.getElementById("paths").innerHTML=PATHS.map(p=>
+ `<div class="path"><div class="p-what">${p.w}</div>
+   <div data-l="Who has to act">${p.a}</div>
+   <div class="p-time" data-l="How long">${p.t}</div>
+   <div data-l="Who can stop it">${p.s}</div></div>`).join("");
+
+/* gaps */
+document.getElementById("gaps").innerHTML=GAPS.map(g=>
+ `<div class="gap"><h3>${g.h}</h3><p>${g.p}</p></div>`).join("");
+</script>
+<div id="editor-ui">
+  <span class="hint" id="ed-hint">Double-click prose to edit. The scale, timeline, routes and gaps are built from data and can't be edited here.</span>
+  <button id="ed-repo">Save to repo</button>
+  <button id="ed-clean" class="alt">Download copy</button>
+</div>
+<script id="editor-script">
+  (function(){
+    // Only static prose. #scale, #tl, #paths and #gaps are rendered from the
+    // data arrays above on every load, so edits there would be silently
+    // overwritten the next time the page opens — leave them alone.
+    var GENERATED = '#scale, #tl, #paths, #gaps';
+    var sel = '.notice span, .hero h1, .hero .lede, .head h2, .sub, ' +
+              '.key p, .gl dt, .gl dd, .recv h3, .recv p, .pending, footer p';
+
+    document.querySelectorAll(sel).forEach(function(el){
+      if(el.closest('#editor-ui') || el.closest(GENERATED)) return;
+      el.setAttribute('data-ce','1');
+      el.addEventListener('dblclick', function(){
+        el.setAttribute('contenteditable','true');
+        el.focus();
+      });
+      el.addEventListener('blur', function(){ el.removeAttribute('contenteditable'); });
+      el.addEventListener('keydown', function(e){ if(e.key==='Escape'){ el.blur(); } });
+    });
+
+    document.addEventListener('click', function(e){
+      if(e.target.closest('[contenteditable="true"]')){ e.preventDefault(); }
+    }, true);
+
+    var hint = document.getElementById('ed-hint');
+    var defaultHint = hint.textContent;
+    function flash(msg, isError){
+      var span = document.createElement('span');
+      span.className = isError ? 'flash err' : 'flash';
+      span.textContent = msg;
+      hint.textContent = '';
+      hint.appendChild(span);
+      setTimeout(function(){ hint.textContent = defaultHint; }, 4500);
+    }
+
+    function snapshot(){
+      var active = document.querySelector('[contenteditable="true"]');
+      if(active){ active.blur(); }
+      var clone = document.documentElement.cloneNode(true);
+      clone.querySelectorAll('[contenteditable]').forEach(function(n){ n.removeAttribute('contenteditable'); });
+      clone.querySelectorAll('[data-ce]').forEach(function(n){ n.removeAttribute('data-ce'); });
+      // These are filled at runtime; ship them empty so the source stays the source.
+      ['scale','tl','paths','gaps'].forEach(function(id){
+        var n = clone.querySelector('#' + id);
+        if(n){ n.innerHTML = ''; }
+      });
+      return '<!DOCTYPE html>\n' + clone.outerHTML;
+    }
+
+    document.getElementById('ed-clean').addEventListener('click', function(){
+      var blob = new Blob([snapshot()], {type:'text/html'});
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url; a.download = 'utah-decision-map-delegates-editable.html';
+      document.body.appendChild(a); a.click();
+      setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 120);
+      flash('Downloaded.');
+    });
+
+    var repoBtn = document.getElementById('ed-repo');
+    var isLocalServer = location.protocol === 'http:' &&
+      (location.hostname === 'localhost' || location.hostname === '127.0.0.1');
+
+    if(!isLocalServer){
+      repoBtn.remove();
+    } else {
+      repoBtn.addEventListener('click', function(){
+        repoBtn.disabled = true;
+        repoBtn.textContent = 'Saving…';
+        fetch('/__save?page=' + encodeURIComponent(location.pathname.replace(/^\//, '')), {
+          method: 'POST',
+          headers: {'Content-Type': 'text/html; charset=utf-8'},
+          body: snapshot()
+        })
+          .then(function(r){ return r.json(); })
+          .then(function(d){ flash(d.message, !d.ok); })
+          .catch(function(e){ flash('Save failed: ' + e.message, true); })
+          .then(function(){
+            repoBtn.disabled = false;
+            repoBtn.textContent = 'Save to repo';
+          });
+      });
+    }
+  })();
+</script>
+</body>
+</html>

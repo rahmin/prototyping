@@ -21,11 +21,16 @@ import subprocess
 import sys
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from urllib.parse import parse_qs, urlparse
 
 REPO = Path(__file__).resolve().parent
-EDITABLE = "bloom-civic-host-invitation-editable.html"
-CLEAN = "bloom-civic-host-invitation.html"
 PAGES_URL = "https://rahmin.github.io/prototyping"
+
+# editable source -> published copy. Add a line here to make a new page editable.
+PAGES = {
+    "bloom-civic-host-invitation-editable.html": "bloom-civic-host-invitation.html",
+    "utah-decision-map-delegates-editable.html": "utah-decision-map-delegates.html",
+}
 
 PUSH = True
 
@@ -39,27 +44,31 @@ def git(*args: str) -> str:
     return proc.stdout
 
 
-def save(html: str) -> str:
-    # Guard against writing garbage over the real page.
-    if "BLOOM Civic Host Cohort" not in html:
-        raise ValueError("that doesn't look like the invitation page")
+def save(editable: str, html: str) -> str:
+    if editable not in PAGES:
+        raise ValueError(f"{editable} is not an editable page")
+    clean = PAGES[editable]
+
+    # Guard against writing garbage over a real page.
     if 'id="editor-script"' not in html:
         raise ValueError("editor block missing — refusing to overwrite")
+    if len(html) < 2000:
+        raise ValueError("content looks truncated — refusing to overwrite")
 
-    (REPO / EDITABLE).write_text(html, encoding="utf-8")
+    (REPO / editable).write_text(html, encoding="utf-8")
 
     proc = subprocess.run(
-        [sys.executable, "make-clean.py", EDITABLE, CLEAN],
+        [sys.executable, "make-clean.py", editable, clean],
         cwd=REPO, capture_output=True, text=True,
     )
     if proc.returncode != 0:
-        raise RuntimeError(proc.stderr.strip() or "could not regenerate clean copy")
+        raise RuntimeError(proc.stderr.strip() or "could not regenerate published copy")
 
-    if not git("status", "--porcelain", "--", EDITABLE, CLEAN).strip():
+    if not git("status", "--porcelain", "--", editable, clean).strip():
         return "No changes to save."
 
-    git("add", "--", EDITABLE, CLEAN)
-    git("commit", "-q", "-m", "Edit invitation copy in browser")
+    git("add", "--", editable, clean)
+    git("commit", "-q", "-m", f"Edit {clean} in browser")
 
     if not PUSH:
         return "Saved and committed locally."
@@ -73,15 +82,17 @@ class Handler(SimpleHTTPRequestHandler):
         super().__init__(*args, directory=str(REPO), **kwargs)
 
     def do_POST(self):  # noqa: N802  (stdlib naming)
-        if self.path != "/__save":
+        parsed = urlparse(self.path)
+        if parsed.path != "/__save":
             self.send_error(404)
             return
 
+        page = (parse_qs(parsed.query).get("page") or [""])[0]
         length = int(self.headers.get("Content-Length") or 0)
         body = self.rfile.read(length).decode("utf-8")
 
         try:
-            message = save(body)
+            message = save(page, body)
             ok, status = True, 200
         except Exception as exc:  # surface the reason in the toolbar
             message, ok, status = str(exc), False, 500
@@ -119,18 +130,21 @@ def main() -> None:
     except OSError as exc:
         raise SystemExit(f"Can't listen on port {args.port}: {exc}")
 
-    url = f"http://localhost:{args.port}/{EDITABLE}"
-    print(f"Editing  {url}")
     print(f"Repo     {REPO}")
     print(f"On save  commit{'' if PUSH else ' (no push)'}"
-          f"{f' + push -> {PAGES_URL}/{CLEAN}' if PUSH else ''}")
+          f"{f' + push -> {PAGES_URL}/' if PUSH else ''}\n")
+    print("Editable pages:")
+    for editable in PAGES:
+        print(f"  http://localhost:{args.port}/{editable}")
+
+    tracked = list(PAGES.keys()) + list(PAGES.values())
     try:
-        pending = git("status", "--porcelain", "--", EDITABLE, CLEAN).strip()
+        pending = git("status", "--porcelain", "--", *tracked).strip()
     except RuntimeError:
         pending = ""
     if pending:
-        print("\nNote: those files already have uncommitted changes, so your")
-        print("first save will include them alongside your browser edits.")
+        print("\nNote: some of those files already have uncommitted changes, so")
+        print("your first save will include them alongside your browser edits.")
 
     print("\nDouble-click any text to edit, then click \"Save to repo\".")
     print("Ctrl-C to stop.\n")
