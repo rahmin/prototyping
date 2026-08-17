@@ -68,42 +68,39 @@ section:last-of-type{border-bottom:none}
 .m-i{background:var(--none-s);color:var(--none)}
 .key p{font-size:.92rem;line-height:1.5;margin:0;color:var(--ink-2)}
 
-.gloss{border-top:var(--rule);margin-top:34px}
+/* --- glossary --- */
+.gloss{border-top:2px solid var(--ink)}
 .gl{border-bottom:var(--rule);padding:15px 2px;display:grid;
   grid-template-columns:200px 1fr;gap:22px;align-items:baseline}
 .gl dt{font-family:var(--f-d);font-weight:700;font-size:.98rem;
   font-variation-settings:"wdth" 104}
 .gl dd{margin:0;font-size:.95rem;line-height:1.5;color:var(--ink-2)}
 
-/* --- standing scale --- */
-.scale{border-top:2px solid var(--ink)}
-.band{border-bottom:var(--rule);padding:22px 0;display:grid;
-  grid-template-columns:250px 1fr;gap:26px;align-items:start}
-.band-l{display:flex;gap:12px;align-items:flex-start}
-.bar{width:5px;flex:none;align-self:stretch;min-height:44px;border-radius:1px}
+/* --- subjects (organised by subject, ordered by standing) --- */
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 26px;padding:0}
+.legend div{display:flex;gap:8px;align-items:center;font-family:var(--f-m);
+  font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);
+  font-weight:600}
+.legend i{width:14px;height:5px;border-radius:1px;display:block}
+
+.subjects{border-top:2px solid var(--ink)}
+.subj{border-bottom:var(--rule);padding:26px 0}
+.subj-head{display:grid;grid-template-columns:5px 1fr auto;gap:16px;
+  align-items:start;margin-bottom:16px}
+.bar{width:5px;flex:none;align-self:stretch;min-height:40px;border-radius:1px}
 .b1{background:var(--strong)} .b2{background:var(--strong);opacity:.55}
 .b3{background:var(--mid)} .b4{background:var(--mid);opacity:.5}
 .b5{background:var(--none)}
-.band-l h3{margin-bottom:5px}
-.band-l p{font-size:.87rem;line-height:1.42;color:var(--mute);margin:0}
-.arenas{display:flex;gap:9px;flex-wrap:wrap;padding-top:2px}
-.arena{border:var(--rule);background:var(--paper-2);padding:9px 14px;
-  font-family:var(--f-d);font-weight:600;font-size:.92rem;
-  font-variation-settings:"wdth" 104;cursor:pointer;text-align:left;
-  transition:background .14s,border-color .14s}
-.arena:hover{border-color:var(--ink);background:var(--paper)}
-.arena[aria-expanded="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.arena small{display:block;font-family:var(--f-m);font-size:.58rem;letter-spacing:.09em;
-  text-transform:uppercase;font-weight:500;opacity:.6;margin-top:3px}
-.detail{grid-column:1/-1;border-left:3px solid var(--strong);background:var(--paper-2);
-  padding:20px 22px;margin-top:16px}
-.detail[hidden]{display:none}
-.detail .dq{font-size:1.02rem;line-height:1.5;margin:0 0 14px;max-width:58ch}
-.detail .dq b{font-family:var(--f-d);font-weight:700;display:block;font-size:.78rem;
-  letter-spacing:.11em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
-.who{font-size:.9rem;color:var(--ink-2);margin:0;line-height:1.5}
-.who b{font-family:var(--f-m);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--mute);font-weight:600;display:block;margin-bottom:4px}
+.subj h3{margin-bottom:5px;font-size:1.16rem;font-variation-settings:"wdth" 106}
+.standing{font-size:.88rem;line-height:1.42;color:var(--mute);margin:0;max-width:52ch}
+.subj-head .mark{font-family:var(--f-m);font-weight:600;font-size:.66rem;letter-spacing:.1em;
+  padding:3px 9px;display:inline-block;white-space:nowrap}
+.subj-body{padding-left:21px;max-width:66ch}
+.subj-body .dq{font-size:1.01rem;line-height:1.5;margin:0 0 15px}
+.subj-body .dq b,.subj-body .who b{font-family:var(--f-d);font-weight:700;display:block;
+  font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--mute);
+  margin-bottom:5px}
+.subj-body .who{font-size:.93rem;color:var(--ink-2);margin:0;line-height:1.55}
 
 /* --- timeline --- */
 .tl{border-left:2px solid var(--ink);margin-left:8px;padding-left:0}
@@ -155,7 +152,10 @@ footer p{font-size:.9rem;color:var(--mute);max-width:60ch;line-height:1.55}
 
 @media (max-width:820px){
   body{font-size:18px}
-  .band,.gl,.gap{grid-template-columns:1fr;gap:14px}
+  .gl,.gap{grid-template-columns:1fr;gap:14px}
+  .subj-head{grid-template-columns:5px 1fr;gap:14px}
+  .subj-head .mark{grid-column:2;justify-self:start;margin-top:8px}
+  .subj-body{padding-left:19px}
   .path{grid-template-columns:1fr;gap:8px}
   .path.hd{display:none}
   .path div::before{content:attr(data-l);display:block;font-family:var(--f-m);
@@ -190,6 +190,135 @@ footer p{font-size:.9rem;color:var(--mute);max-width:60ch;line-height:1.55}
     <div class="key"><span class="mark m-i">Inferred</span>
       <p>Worked out from related facts rather than found in a source. Treat as a question, not an answer.</p></div>
   </div>
+</section>
+
+<!-- 01 -->
+<section>
+  <div class="head"><span class="num">01</span><h2>Where the public can influence today</h2></div>
+  <p class="sub">One entry for each subject in your remit. Each says what say the public currently has, what the open question is, and who actually decides. This describes what the law provides — not how important a subject is, and not how much anyone cares about it. They run from most public say to least.</p>
+
+  <div class="legend">
+    <div><i class="b1"></i>Meeting required</div>
+    <div><i class="b2"></i>Formal party</div>
+    <div><i class="b3"></i>Comment if allowed</div>
+    <div><i class="b4"></i>Told afterwards</div>
+    <div><i class="b5"></i>No say beforehand</div>
+  </div>
+
+  <div class="subjects">
+
+    <article class="subj">
+      <div class="subj-head">
+        <span class="bar b1"></span>
+        <div>
+          <h3>Schools and classrooms</h3>
+          <p class="standing">The law requires a public meeting. A body must hold a meeting and take comment before it decides.</p>
+        </div>
+        <span class="mark m-v">Verified</span>
+      </div>
+      <div class="subj-body">
+        <p class="dq"><b>The question this raises</b>Whose meeting is the decision made in, and who gets to speak at it?</p>
+        <p class="who"><b>What gets decided, and by whom</b>Every Utah school district must adopt a policy on AI use in its schools. Before adopting it, the district's governing board must hold a public meeting that allows public comment, and must then confirm to the state that the meeting happened. Around ten districts across Cache, Salt Lake and Utah Counties will each do this between December 2026 and June 2027.</p>
+      </div>
+    </article>
+
+    <article class="subj">
+      <div class="subj-head">
+        <span class="bar b2"></span>
+        <div>
+          <h3>Electricity costs</h3>
+          <p class="standing">You can take part, but as a formal party. There is a process, and it is open — but it is built for organisations with lawyers.</p>
+        </div>
+        <span class="mark m-v">Verified</span>
+      </div>
+      <div class="subj-body">
+        <p class="dq"><b>The question this raises</b>Is someone paying an electricity bill a party to a case about that bill, or an audience for it?</p>
+        <p class="who"><b>What gets decided, and by whom</b>The Public Service Commission decides whether the power company can serve a large new customer, what new equipment that needs, and who pays for it. Utilities, large customers and state offices file evidence as parties. Members of the public can speak at a public witness hearing. Those are not the same thing.</p>
+      </div>
+    </article>
+
+    <article class="subj">
+      <div class="subj-head">
+        <span class="bar b3"></span>
+        <div>
+          <h3>Where data centres get built</h3>
+          <p class="standing">You can comment if the body allows it. Meetings are open and comment is usually taken, but nothing requires the body to seek it or answer it.</p>
+        </div>
+        <span class="mark m-v">Verified</span>
+      </div>
+      <div class="subj-body">
+        <p class="dq"><b>The question this raises</b>At what point does the public get a right to be heard — and can that right be used up by a decision made before anyone knew a project existed?</p>
+        <p class="who"><b>What gets decided, and by whom</b>Normally a county or city decides what can be built where, and a rezoning carries a public hearing. But some state entities can take land into a 'project area' and then act as the land use authority themselves. Where that happens, the county's agreement is given once and cannot be withdrawn.</p>
+      </div>
+    </article>
+
+    <article class="subj">
+      <div class="subj-head">
+        <span class="bar b3"></span>
+        <div>
+          <h3>Water use</h3>
+          <p class="standing">You can comment if the body allows it. Meetings are open and comment is usually taken, but nothing requires the body to seek it or answer it.</p>
+        </div>
+        <span class="mark m-v">Verified</span>
+      </div>
+      <div class="subj-body">
+        <p class="dq"><b>The question this raises</b>When a public body learns a project will use a large amount of water, does the public learn it at the same time?</p>
+        <p class="who"><b>What gets decided, and by whom</b>Since July 2026, before approving a large data centre a local authority must notify the state water agencies and the water provider, and operators must report their expected water use. The notice goes to three government bodies. Residents are not among them.</p>
+      </div>
+    </article>
+
+    <article class="subj">
+      <div class="subj-head">
+        <span class="bar b3"></span>
+        <div>
+          <h3>Tax breaks</h3>
+          <p class="standing">You can comment if the body allows it. Meetings are open and comment is usually taken, but nothing requires the body to seek it or answer it.</p>
+        </div>
+        <span class="mark m-v">Verified</span>
+      </div>
+      <div class="subj-body">
+        <p class="dq"><b>The question this raises</b>Can the public be heard about a figure nobody has worked out?</p>
+        <p class="who"><b>What gets decided, and by whom</b>Utah exempts qualifying data centres from some sales tax. Because the exemption is applied at the till, the state does not collect figures on how much revenue it gives up each year. The State Auditor has confirmed the information is not readily available and is building a public dashboard.</p>
+      </div>
+    </article>
+
+    <article class="subj">
+      <div class="subj-head">
+        <span class="bar b4"></span>
+        <div>
+          <h3>How the state sets AI policy</h3>
+          <p class="standing">You find out after it is decided. The decision is published once made. There is no notice beforehand and no comment period.</p>
+        </div>
+        <span class="mark m-v">Verified</span>
+      </div>
+      <div class="subj-body">
+        <p class="dq"><b>The question this raises</b>When the state agrees to set aside a rule for a particular company, does anyone outside the room find out before it is signed?</p>
+        <p class="who"><b>What gets decided, and by whom</b>Utah's Office of Artificial Intelligence Policy can agree with a company to relax specific Utah regulations for twelve months while a product is tested. These agreements are published once signed. Nothing requires notice or public comment before that.</p>
+      </div>
+    </article>
+
+    <article class="subj">
+      <div class="subj-head">
+        <span class="bar b5"></span>
+        <div>
+          <h3>AI at work</h3>
+          <p class="standing">No say in the decision — only a complaint afterwards. You have no standing while the decision is made. There is a route to object once it is done, if you can find out enough to use it.</p>
+        </div>
+        <span class="mark m-v">Verified</span>
+      </div>
+      <div class="subj-body">
+        <p class="dq"><b>The question this raises</b>Are you entitled to know that a machine was involved in a decision about your job?</p>
+        <p class="who"><b>What gets decided, and by whom</b>Utah has passed no law about employers using AI to hire, monitor, evaluate, discipline or dismiss workers. Nothing requires an employer to tell you AI was used, to show how it reached its conclusion, or to test the tool for bias. If the outcome discriminates on a protected basis — race, sex, age, disability, religion and others — that is already unlawful, and you can file with the Utah Labor Commission's Antidiscrimination and Labor Division or the federal EEOC within 180 days, if your employer has 15 or more employees. The protection covers the result. Nothing covers the process, which is how you would learn there was anything to complain about. For comparison: a school using generative AI with your child must notify you in writing.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- 02 -->
+<section>
+  <div class="head"><span class="num">02</span><h2>What these terms mean</h2></div>
+  <p class="sub">Words that appear above, and that will come up again over the two days.</p>
 
   <dl class="gloss">
     <div class="gl"><dt>Public comment</dt><dd>A chance to speak or write to a body before it decides. Often time-limited, and the body is not required to answer you.</dd></div>
@@ -201,29 +330,63 @@ footer p{font-size:.9rem;color:var(--mute);max-width:60ch;line-height:1.55}
   </dl>
 </section>
 
-<!-- 01 -->
-<section>
-  <div class="head"><span class="num">01</span><h2>What say the public has now</h2></div>
-  <p class="sub">The subjects in your remit sit at different places on this scale. The scale describes what the law currently provides — not how important a subject is, and not how much anyone cares about it. Select a subject to see what gets decided and who decides it.</p>
-
-  <div class="scale" id="scale"></div>
-</section>
-
-<!-- 02 -->
-<section>
-  <div class="head"><span class="num">02</span><h2>When these decisions happen</h2></div>
-  <p class="sub">Dates between now and mid-2027. Some opportunities have already passed; most have not.</p>
-  <div class="tl" id="tl"></div>
-</section>
-
 <!-- 03 -->
 <section>
-  <div class="head"><span class="num">03</span><h2>What can happen to a recommendation</h2></div>
-  <p class="sub">If the Forum recommends something, it has to travel somewhere to take effect. These are the routes, ordered by how many people have to agree. The ones near the top are slow and expensive but reach further; the ones near the bottom are quick but bind only one body.</p>
+  <div class="head"><span class="num">03</span><h2>When these decisions happen</h2></div>
+  <p class="sub">Dates between now and mid-2027. Some opportunities have already passed; most have not.</p>
+  <div class="tl">
+    <div class="ev past"><span class="when">16 September 2026</span><h3>Legislative interim committees met</h3><p>Committees studying data centres, energy and taxes met two days before the Forum opens.</p></div>
+    <div class="ev forum"><span class="when">18–19 September 2026</span><h3>The Forum</h3><p>Two days. Forty delegates from three counties.</p></div>
+    <div class="ev"><span class="when">21 October 2026</span><h3>Interim committees meet</h3><p>The first opportunity after the Forum to put something in front of legislators before the 2027 session.</p></div>
+    <div class="ev"><span class="when">3 November 2026</span><h3>General election</h3><p>All state House seats and about half the Senate. A constitutional amendment on citizen petitions is also on the ballot.</p></div>
+    <div class="ev"><span class="when">18 November 2026</span><h3>Interim committees meet</h3><p>The last committee meeting date of the year. December is reserved for session preparation.</p></div>
+    <div class="ev"><span class="when">Before 1 December 2026</span><h3>State model school AI policy due</h3><p>The State Board of Education must publish the policy that every district builds from.</p></div>
+    <div class="ev"><span class="when">Around 20 December 2026</span><h3>Cache County pause ends</h3><p>Cache County paused new data centre applications in June while it writes permanent rules. That pause runs out.</p></div>
+    <div class="ev"><span class="when">19 January 2027</span><h3>Legislature convenes</h3><p>Utah's session runs 45 days. Bills that miss the clock die whether or not anyone objected to them.</p></div>
+    <div class="ev"><span class="when">By 1 July 2027</span><h3>School districts adopt AI policies</h3><p>Each district must adopt its own, after a public meeting. Around ten across the three counties.</p></div>
+    <div class="ev"><span class="when">1 July 2027</span><h3>State AI law expires</h3><p>The law creating the Office of Artificial Intelligence Policy runs out unless the Legislature renews it.</p></div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section>
+  <div class="head"><span class="num">04</span><h2>What can happen to a recommendation</h2></div>
+  <p class="sub">If the Forum recommends something, it has to travel somewhere to take effect. These are the routes, ordered by how many people have to agree. The ones near the top are quick but bind only one body; the ones near the bottom are slow and expensive but reach further.</p>
 
   <div class="paths">
     <div class="path hd"><span>Route</span><span>Who has to act</span><span>How long</span><span>Who can stop it</span></div>
-    <div id="paths"></div>
+    <div class="path"><div class="p-what">One body changes its own policy</div>
+      <div data-l="Who has to act">A school board, a county council, a city council</div>
+      <div class="p-time" data-l="How long">Weeks to months</div>
+      <div data-l="Who can stop it">That body, by deciding otherwise</div></div>
+    <div class="path"><div class="p-what">A state agency writes it into its rules</div>
+      <div data-l="Who has to act">An agency, during a rulemaking</div>
+      <div class="p-time" data-l="How long">3–12 months</div>
+      <div data-l="Who can stop it">The comment period closing before anyone files</div></div>
+    <div class="path"><div class="p-what">A legislative committee studies it</div>
+      <div data-l="Who has to act">A committee, by voting to take it up</div>
+      <div class="p-time" data-l="How long">Two meeting dates left in 2026</div>
+      <div data-l="Who can stop it">A full agenda</div></div>
+    <div class="path"><div class="p-what">A legislator introduces a bill</div>
+      <div data-l="Who has to act">One legislator, plus committee and floor votes</div>
+      <div class="p-time" data-l="How long">12–18 months</div>
+      <div data-l="Who can stop it">The 45-day clock, more often than a vote against</div></div>
+    <div class="path"><div class="p-what">A bill attached to the 2027 expiry</div>
+      <div data-l="Who has to act">Whoever writes the renewal of the state AI law</div>
+      <div class="p-time" data-l="How long">The 2027 session</div>
+      <div data-l="Who can stop it">A clean renewal that changes only the date</div></div>
+    <div class="path"><div class="p-what">County petition for a new local law</div>
+      <div data-l="Who has to act">Voters gathering signatures across the county</div>
+      <div class="p-time" data-l="How long">Many months</div>
+      <div data-l="Who can stop it">Signature spread requirements across county areas</div></div>
+    <div class="path"><div class="p-what">County petition to overturn a land use decision</div>
+      <div data-l="Who has to act">Voters, quickly</div>
+      <div class="p-time" data-l="How long">Very short window</div>
+      <div data-l="Who can stop it">Being classed as an administrative act, which cannot be petitioned</div></div>
+    <div class="path"><div class="p-what">Statewide petition for a new law</div>
+      <div data-l="Who has to act">A statewide organisation with paid signature gatherers</div>
+      <div class="p-time" data-l="How long">About a year</div>
+      <div data-l="Who can stop it">Reaching the threshold in 26 of Utah's 29 senate districts</div></div>
   </div>
 
   <div class="recv" style="margin-top:38px">
@@ -234,11 +397,19 @@ footer p{font-size:.9rem;color:var(--mute);max-width:60ch;line-height:1.55}
   </div>
 </section>
 
-<!-- 04 -->
+<!-- 05 -->
 <section>
-  <div class="head"><span class="num">04</span><h2>Where no one currently holds the question</h2></div>
+  <div class="head"><span class="num">05</span><h2>Where no one currently holds the question</h2></div>
   <p class="sub">These are not complaints about decisions that went the wrong way. They are places where the law provides no way for the public to be heard at all, because no such route was ever created.</p>
-  <div class="gaps" id="gaps"></div>
+  <div class="gaps">
+    <div class="gap"><h3>Land taken into a state project area</h3><p>A state entity can take land into a project area and become the land use authority for it. No public hearing is required before that happens, and the county's agreement cannot be withdrawn afterwards or put to voters.</p></div>
+    <div class="gap"><h3>Knowing AI was used at work</h3><p>If an employer's AI tool discriminates on a protected basis, that is already unlawful, and the Utah Labor Commission and the EEOC both take complaints. What is missing is earlier: nothing requires an employer to tell you AI was used, to explain how it reached its conclusion, or to check the tool for bias. The remedy exists. Reaching it depends on finding out something nobody has to tell you.</p></div>
+    <div class="gap"><h3>The state's model school AI policy</h3><p>Before adopting core school standards, the state board must publish a draft, take 90 days of comment, and hold three public hearings. For the model AI policy, none of that applies. The public meeting requirement falls on districts, not on the state.</p></div>
+    <div class="gap"><h3>Agreements setting aside regulations</h3><p>Nothing requires notice or comment before the state agrees to relax a rule for a named company. The agreement is published after it is signed.</p></div>
+    <div class="gap"><h3>Notice of large water commitments</h3><p>Before a large data centre is approved, three government bodies must be told. Residents of the affected area are not among them.</p></div>
+    <div class="gap"><h3>The cost of the tax exemption</h3><p>No figure exists for what the data centre tax exemption costs each year. A hearing cannot be held about a number nobody has.</p></div>
+    <div class="gap"><h3>A commitment with no method</h3><p>A May 2026 executive order tells state agencies to carry out extensive public engagement on data centres. It names no agency, no venue, no timeline and nothing they must produce.</p></div>
+  </div>
 </section>
 
 <footer>
@@ -246,120 +417,5 @@ footer p{font-size:.9rem;color:var(--mute);max-width:60ch;line-height:1.55}
 </footer>
 
 </div>
-
-<script>
-const BANDS=[
- {c:"b1",t:"The law requires a public meeting",
-  s:"A body must hold a meeting and take comment before it decides.",
-  a:[{id:"edu",n:"Schools and classrooms",m:"Verified",
-      q:"Whose meeting is the decision made in, and who gets to speak at it?",
-      w:"Every Utah school district must adopt a policy on AI use in its schools. Before adopting it, the district's governing board must hold a public meeting that allows public comment, and must then confirm to the state that the meeting happened. Around ten districts across Cache, Salt Lake and Utah Counties will each do this between December 2026 and June 2027."}]},
-
- {c:"b2",t:"You can take part, but as a formal party",
-  s:"There is a process, and it is open — but it is built for organisations with lawyers.",
-  a:[{id:"energy",n:"Electricity costs",m:"Verified",
-      q:"Is someone paying an electricity bill a party to a case about that bill, or an audience for it?",
-      w:"The Public Service Commission decides whether the power company can serve a large new customer, what new equipment that needs, and who pays for it. Utilities, large customers and state offices file evidence as parties. Members of the public can speak at a public witness hearing. Those are not the same thing."}]},
-
- {c:"b3",t:"You can comment if the body allows it",
-  s:"Meetings are open and comment is usually taken, but nothing requires the body to seek it or answer it.",
-  a:[{id:"land",n:"Where data centres get built",m:"Verified",
-      q:"At what point does the public get a right to be heard — and can that right be used up by a decision made before anyone knew a project existed?",
-      w:"Normally a county or city decides what can be built where, and a rezoning carries a public hearing. But some state entities can take land into a 'project area' and then act as the land use authority themselves. Where that happens, the county's agreement is given once and cannot be withdrawn."},
-     {id:"water",n:"Water use",m:"Verified",
-      q:"When a public body learns a project will use a large amount of water, does the public learn it at the same time?",
-      w:"Since July 2026, before approving a large data centre a local authority must notify the state water agencies and the water provider, and operators must report their expected water use. The notice goes to three government bodies. Residents are not among them."},
-     {id:"tax",n:"Tax breaks",m:"Verified",
-      q:"Can the public be heard about a figure nobody has worked out?",
-      w:"Utah exempts qualifying data centres from some sales tax. Because the exemption is applied at the till, the state does not collect figures on how much revenue it gives up each year. The State Auditor has confirmed the information is not readily available and is building a public dashboard."}]},
-
- {c:"b4",t:"You find out after it is decided",
-  s:"The decision is published once made. There is no notice beforehand and no comment period.",
-  a:[{id:"state",n:"How the state sets AI policy",m:"Verified",
-      q:"When the state agrees to set aside a rule for a particular company, does anyone outside the room find out before it is signed?",
-      w:"Utah's Office of Artificial Intelligence Policy can agree with a company to relax specific Utah regulations for twelve months while a product is tested. These agreements are published once signed. Nothing requires notice or public comment before that."}]},
-
- {c:"b5",t:"No say in the decision — only a complaint afterwards",
-  s:"You have no standing while the decision is made. There is a route to object once it is done, if you can find out enough to use it.",
-  a:[{id:"work",n:"AI at work",m:"Verified",
-      q:"Are you entitled to know that a machine was involved in a decision about your job?",
-      w:"Utah has passed no law about employers using AI to hire, monitor, evaluate, discipline or dismiss workers. Nothing requires an employer to tell you AI was used, to show how it reached its conclusion, or to test the tool for bias. If the outcome discriminates on a protected basis — race, sex, age, disability, religion and others — that is already unlawful, and you can file with the Utah Labor Commission's Antidiscrimination and Labor Division or the federal EEOC within 180 days, if your employer has 15 or more employees. The protection covers the result. Nothing covers the process, which is how you would learn there was anything to complain about. For comparison: a school using generative AI with your child must notify you in writing."}]}
-];
-
-const TL=[
- {d:"16 September 2026",h:"Legislative interim committees met",p:"Committees studying data centres, energy and taxes met two days before the Forum opens.",k:"past"},
- {d:"18–19 September 2026",h:"The Forum",p:"Two days. Forty delegates from three counties.",k:"forum"},
- {d:"21 October 2026",h:"Interim committees meet",p:"The first opportunity after the Forum to put something in front of legislators before the 2027 session.",k:""},
- {d:"3 November 2026",h:"General election",p:"All state House seats and about half the Senate. A constitutional amendment on citizen petitions is also on the ballot.",k:""},
- {d:"18 November 2026",h:"Interim committees meet",p:"The last committee meeting date of the year. December is reserved for session preparation.",k:""},
- {d:"Before 1 December 2026",h:"State model school AI policy due",p:"The State Board of Education must publish the policy that every district builds from.",k:""},
- {d:"Around 20 December 2026",h:"Cache County pause ends",p:"Cache County paused new data centre applications in June while it writes permanent rules. That pause runs out.",k:""},
- {d:"19 January 2027",h:"Legislature convenes",p:"Utah's session runs 45 days. Bills that miss the clock die whether or not anyone objected to them.",k:""},
- {d:"By 1 July 2027",h:"School districts adopt AI policies",p:"Each district must adopt its own, after a public meeting. Around ten across the three counties.",k:""},
- {d:"1 July 2027",h:"State AI law expires",p:"The law creating the Office of Artificial Intelligence Policy runs out unless the Legislature renews it.",k:""}
-];
-
-const PATHS=[
- {w:"One body changes its own policy",a:"A school board, a county council, a city council",t:"Weeks to months",s:"That body, by deciding otherwise"},
- {w:"A state agency writes it into its rules",a:"An agency, during a rulemaking",t:"3–12 months",s:"The comment period closing before anyone files"},
- {w:"A legislative committee studies it",a:"A committee, by voting to take it up",t:"Two meeting dates left in 2026",s:"A full agenda"},
- {w:"A legislator introduces a bill",a:"One legislator, plus committee and floor votes",t:"12–18 months",s:"The 45-day clock, more often than a vote against"},
- {w:"A bill attached to the 2027 expiry",a:"Whoever writes the renewal of the state AI law",t:"The 2027 session",s:"A clean renewal that changes only the date"},
- {w:"County petition for a new local law",a:"Voters gathering signatures across the county",t:"Many months",s:"Signature spread requirements across county areas"},
- {w:"County petition to overturn a land use decision",a:"Voters, quickly",t:"Very short window",s:"Being classed as an administrative act, which cannot be petitioned"},
- {w:"Statewide petition for a new law",a:"A statewide organisation with paid signature gatherers",t:"About a year",s:"Reaching the threshold in 26 of Utah's 29 senate districts"}
-];
-
-const GAPS=[
- {h:"Land taken into a state project area",p:"A state entity can take land into a project area and become the land use authority for it. No public hearing is required before that happens, and the county's agreement cannot be withdrawn afterwards or put to voters."},
- {h:"Knowing AI was used at work",p:"If an employer's AI tool discriminates on a protected basis, that is already unlawful, and the Utah Labor Commission and the EEOC both take complaints. What is missing is earlier: nothing requires an employer to tell you AI was used, to explain how it reached its conclusion, or to check the tool for bias. The remedy exists. Reaching it depends on finding out something nobody has to tell you."},
- {h:"The state's model school AI policy",p:"Before adopting core school standards, the state board must publish a draft, take 90 days of comment, and hold three public hearings. For the model AI policy, none of that applies. The public meeting requirement falls on districts, not on the state."},
- {h:"Agreements setting aside regulations",p:"Nothing requires notice or comment before the state agrees to relax a rule for a named company. The agreement is published after it is signed."},
- {h:"Notice of large water commitments",p:"Before a large data centre is approved, three government bodies must be told. Residents of the affected area are not among them."},
- {h:"The cost of the tax exemption",p:"No figure exists for what the data centre tax exemption costs each year. A hearing cannot be held about a number nobody has."},
- {h:"A commitment with no method",p:"A May 2026 executive order tells state agencies to carry out extensive public engagement on data centres. It names no agency, no venue, no timeline and nothing they must produce."}
-];
-
-/* build scale */
-const sc=document.getElementById("scale");
-BANDS.forEach((b,bi)=>{
-  const row=document.createElement("div");row.className="band";
-  const chips=b.a.map((a,i)=>
-    `<button class="arena" aria-expanded="false" data-b="${bi}" data-i="${i}">
-       ${a.n}<small>${a.m}</small></button>`).join("");
-  row.innerHTML=`<div class="band-l"><span class="bar ${b.c}"></span>
-      <div><h3>${b.t}</h3><p>${b.s}</p></div></div>
-    <div class="arenas">${chips}</div>
-    <div class="detail" hidden></div>`;
-  sc.appendChild(row);
-});
-sc.addEventListener("click",e=>{
-  const btn=e.target.closest(".arena");if(!btn)return;
-  const row=btn.closest(".band"),det=row.querySelector(".detail");
-  const open=btn.getAttribute("aria-expanded")==="true";
-  row.querySelectorAll(".arena").forEach(b=>b.setAttribute("aria-expanded","false"));
-  if(open){det.hidden=true;return;}
-  btn.setAttribute("aria-expanded","true");
-  const a=BANDS[btn.dataset.b].a[btn.dataset.i];
-  det.innerHTML=`<p class="dq"><b>The question this raises</b>${a.q}</p>
-    <p class="who"><b>What gets decided, and by whom</b>${a.w}</p>`;
-  det.hidden=false;
-});
-
-/* timeline */
-document.getElementById("tl").innerHTML=TL.map(e=>
- `<div class="ev ${e.k}"><span class="when">${e.d}</span><h3>${e.h}</h3><p>${e.p}</p></div>`).join("");
-
-/* pathways */
-document.getElementById("paths").innerHTML=PATHS.map(p=>
- `<div class="path"><div class="p-what">${p.w}</div>
-   <div data-l="Who has to act">${p.a}</div>
-   <div class="p-time" data-l="How long">${p.t}</div>
-   <div data-l="Who can stop it">${p.s}</div></div>`).join("");
-
-/* gaps */
-document.getElementById("gaps").innerHTML=GAPS.map(g=>
- `<div class="gap"><h3>${g.h}</h3><p>${g.p}</p></div>`).join("");
-</script>
 </body>
 </html>
