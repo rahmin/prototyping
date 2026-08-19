@@ -2,12 +2,15 @@
 
 Working repo for BLOOM prototypes. Maintainer: Rahmin Sarabi, Co-Executive Director, BLOOM.
 
-Two independent artifacts live here — they share no code, styling, or tooling, so a change to one never affects the other:
+Three artifacts live here:
 
 1. **Civic Host Cohort recruitment materials** — offering document and landing page for BLOOM's first Civic Host cohort (six regions, launching Fall 2026). Most of this file is about these.
 2. **Utah delegate background page** — `utah-decision-map-delegates.html`, prepared for delegates to the Utah Solutions Forum (18–19 September 2026).
+3. **Utah Solutions Forum landing page** — `utah-solutions-forum/`, the public-facing page for the same Forum. Built on the shared `bloom-civic-host-kit/` design system. See its own `README.md`; **it is still a draft and has unresolved items listed there.**
 
-Everything below concerns the recruitment materials unless it names the Utah page.
+1 and 2 share no code, styling, or tooling, so a change to one never affects the other. 3 is the exception: it links `bloom-civic-host-kit/kit.css`, so edits to the kit affect it. The kit is otherwise standalone — nothing else in this repo imports it.
+
+Everything below concerns the recruitment materials unless it names one of the Utah pages.
 
 ---
 

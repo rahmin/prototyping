@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!--
+  Utah Solutions Forum — landing page.
+
+  Implemented from the BLOOM Civic Host Design System template
+  templates/utah-solutions-forum/UtahSolutionsForum.dc.html.
+
+  The design concept's <x-import> components resolve to real kit classes:
+    Eyebrow            -> .eyebrow  (+ .on-dark)
+    Button              -> .btn .btn-primary / .btn-ghost (+ .btn-lg)
+    Caveat              -> .caveat
+  Its <sc-if> pair and DCLogic state resolve to the small script at the
+  bottom of this file. hint-size attributes were design-time only and are
+  dropped. See README.md for what is still unresolved.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Utah Solutions Forum — September 18–19, 2026, Lehi, Utah</title>
+<meta name="description" content="Forty Utahns, chosen by lottery, spend two days deliberating on what role the public should have in shaping decisions about AI in Utah.">
+<meta property="og:title" content="Utah Solutions Forum">
+<meta property="og:description" content="Forty Utahns, chosen by lottery, deliberating on the public's role in decisions about AI in Utah. September 18–19, 2026, Lehi.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="./share-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../bloom-civic-host-kit/kit.css">
+<link rel="stylesheet" href="usf.css">
+</head>
+<body>
+
+<a class="usf-skip" href="#main">Skip to content</a>
+
+<header class="usf-header">
+  <div class="wrap">
+    <span class="usf-header-name">Utah Solutions Forum</span>
+    <span class="usf-label">Sept 18–19, 2026 · Lehi</span>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- A. HERO -->
+  <section class="usf-sec-hero">
+    <div class="wrap">
+      <span class="eyebrow">A Utah citizens' assembly</span>
+      <h1 class="usf-h1">What role should the public have in shaping decisions about AI in Utah?</h1>
+      <p class="usf-sub">Forty Utahns, chosen by lottery to reflect the state, will spend two days answering that question together in Lehi.</p>
+
+      <div class="usf-figs">
+        <div class="usf-fig">
+          <div class="usf-fig-n">40</div>
+          <span class="usf-label">delegates</span>
+        </div>
+        <div class="usf-fig">
+          <div class="usf-fig-n">2</div>
+          <span class="usf-label">days</span>
+        </div>
+        <div class="usf-fig">
+          <div class="usf-fig-n usf-fig-n-nowrap">Sept 18–19</div>
+          <span class="usf-label">2026 · Lehi, Utah</span>
+        </div>
+      </div>
+
+      <div class="usf-cta">
+        <a class="btn btn-primary btn-lg" href="#findings">See what Utahns said</a>
+        <a class="btn btn-ghost btn-lg" href="#delegates">How delegates were chosen</a>
+      </div>
+
+      <div class="usf-hosts">
+        <p>Hosted by Utah Common Ground and Mormon Women for Ethical Government, in partnership with the BLOOM Project, an initiative of the Association for Civic Infrastructure.</p>
+        <div class="usf-lock">
+          <img class="usf-lock-ucg" src="assets/utah-common-ground-logo.avif" alt="Utah Common Ground" width="690" height="186">
+          <span class="usf-lock-name">Mormon Women for Ethical Government</span>
+          <span class="usf-lock-rule" aria-hidden="true"></span>
+          <img class="usf-lock-bloom" src="assets/bloom-project-logo.png" alt="BLOOM Project" width="2396" height="961">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B. WHAT UTAHNS SAID -->
+  <section class="usf-sec tint-pine" id="findings">
+    <div class="wrap">
+      <span class="eyebrow">What Utahns said</span>
+      <h2 class="usf-h2-tight usf-mw-22">About 540 Utahns weighed in before the Forum.</h2>
+      <p class="usf-body">In an online opinion-mapping poll, participants reacted to statements written by other Utahns and added statements of their own. The poll mapped where people already agree across political lines, and those areas of agreement shape what the forty delegates will discuss.</p>
+      <p class="usf-body">The poll has closed. The full results will be published here.</p>
+
+      <div class="card usf-pending">
+        <span class="usf-label usf-label-gold">Publishing soon</span>
+        <p class="usf-pending-h">Poll findings are being prepared for release.</p>
+        <p class="usf-pending-sub">Publication date to be confirmed.</p>
+      </div>
+
+      <p class="caveat usf-caveat">Participation was anonymous. Individual responses are never published with a name attached.</p>
+    </div>
+  </section>
+
+  <!-- C. DELEGATES -->
+  <section class="usf-sec" id="delegates">
+    <div class="wrap">
+      <span class="eyebrow">Who is deliberating</span>
+      <h2 class="usf-h2-tight usf-mw-24">Forty Utahns, chosen by lottery.</h2>
+
+      <div class="usf-2col">
+        <div>
+          <p class="usf-prose">Invitations went out by mail to randomly selected households across Utah. Everyone who replied went into a pool, and the final panel of forty was drawn from that pool to match the state on six measures.</p>
+          <p class="usf-prose">Nobody applied and nobody was appointed. Delegates are paid for their time, and they are described here as a group: no names and no photographs are published.</p>
+          <p class="usf-more"><a class="usf-link" href="#">Read the full selection methodology →</a></p>
+        </div>
+
+        <div class="card usf-panel">
+          <span class="usf-label">Panel against Utah</span>
+          <table class="usf-table">
+            <thead>
+              <tr>
+                <th scope="col">Measure</th>
+                <th scope="col">Target</th>
+                <th scope="col">Panel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Age</td><td>—</td><td>—</td></tr>
+              <tr><td>Gender</td><td>—</td><td>—</td></tr>
+              <tr><td>Geography</td><td>—</td><td>—</td></tr>
+              <tr><td>Education</td><td>—</td><td>—</td></tr>
+              <tr><td>Race and ethnicity</td><td>—</td><td>—</td></tr>
+              <tr><td>Political leaning</td><td>—</td><td>—</td></tr>
+            </tbody>
+          </table>
+          <p class="usf-label usf-label-gold usf-label-sm usf-table-note">Figures published once the panel is confirmed</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- D. PROCESS ARC -->
+  <section class="usf-sec tint-paper2">
+    <div class="wrap">
+      <span class="eyebrow">The process</span>
+      <h2 class="usf-h2-tight usf-mw-24">Five stages, from a poll to published recommendations.</h2>
+
+      <ol class="usf-arc">
+        <li>
+          <span class="usf-label usf-label-pine">Complete · Spring 2026</span>
+          <h3>Three-county opinion poll</h3>
+          <p>An online poll in three counties surfaced the questions residents were already raising.</p>
+        </li>
+        <li>
+          <span class="usf-label usf-label-pine">Complete · Summer 2026</span>
+          <h3>Community conversations and the Cache County Forum</h3>
+          <p>In-person sessions tested what the poll found, and a first forum in Cache County published its responses in full.</p>
+        </li>
+        <li>
+          <span class="usf-label usf-label-pine">Complete · Summer 2026</span>
+          <h3>Delegate selection</h3>
+          <p>Mailed invitations, a pool of respondents, and a final draw of forty matched to the state.</p>
+        </li>
+        <li class="usf-arc-now">
+          <span class="usf-label usf-label-gold">Next · September 18–19, 2026</span>
+          <h3>The Utah Solutions Forum</h3>
+          <p>Two days in Lehi. Delegates hear from people who disagree with each other, then work toward recommendations.</p>
+        </li>
+        <li class="usf-arc-ahead">
+          <span class="usf-label">Ahead · Date to be confirmed</span>
+          <h3>Recommendations published</h3>
+          <p>The delegates' conclusions are published in full and delivered to the bodies that can act on them.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- E. LEARNING MATERIALS -->
+  <section class="usf-sec">
+    <div class="wrap">
+      <span class="eyebrow">Learning materials</span>
+      <h2 class="usf-h2-tight usf-mw-26">The same materials the delegates read.</h2>
+      <p class="usf-lede-tight">Anyone can read them. They are reviewed for balance before delegates receive them.</p>
+
+      <div class="usf-3col">
+        <div class="tool usf-tool">
+          <h3>Citizen Briefing Book</h3>
+          <p>Background on how AI is already being used in Utah, and what decisions are in front of the state.</p>
+          <span class="usf-label usf-label-gold usf-label-sm">Coming soon</span>
+        </div>
+        <div class="tool usf-tool">
+          <h3>Policy Options</h3>
+          <p>The range of approaches on the table, with the case for and against each one.</p>
+          <span class="usf-label usf-label-gold usf-label-sm">Coming soon</span>
+        </div>
+        <div class="tool usf-tool">
+          <h3>Data Center Memo</h3>
+          <p>What data centers require, what they bring, and who carries the cost.</p>
+          <span class="usf-label usf-label-gold usf-label-sm">Coming soon</span>
+        </div>
+      </div>
+
+      <p class="caveat usf-caveat">Each document will open in a new tab, with its file size and page count listed.</p>
+    </div>
+  </section>
+
+  <!-- F. WHAT IS A CIVIC ASSEMBLY — the page's one dark band -->
+  <section class="band">
+    <div class="wrap">
+      <span class="eyebrow on-dark">What is a civic assembly?</span>
+      <h2 class="usf-h2-tight">A jury for a policy question.</h2>
+
+      <div class="band-grid usf-band-grid">
+        <div class="band-cell">
+          <div class="no">01</div>
+          <h3>Chosen by lottery</h3>
+          <p>Everyday people, drawn at random rather than by application or appointment, and paid for their time.</p>
+        </div>
+        <div class="band-cell">
+          <div class="no">02</div>
+          <h3>They hear both sides</h3>
+          <p>Delegates hear from experts and advocates who disagree with each other, then question them directly.</p>
+        </div>
+        <div class="band-cell">
+          <div class="no">03</div>
+          <h3>Supermajority to adopt</h3>
+          <p>A recommendation is adopted only when a supermajority of the panel supports it.</p>
+        </div>
+      </div>
+
+      <p class="usf-more-lg"><a class="usf-link usf-link-gold" href="#">Read a general explainer →</a></p>
+    </div>
+  </section>
+
+  <!-- G. WHAT HAPPENS NEXT -->
+  <section class="usf-sec">
+    <div class="wrap">
+      <span class="eyebrow">What happens next</span>
+      <h2 class="usf-h2-tight usf-mw-24">The delegates' conclusions are their own.</h2>
+
+      <div class="card card-commit usf-tbc">
+        <span class="usf-label usf-label-gold">To be confirmed</span>
+        <p>This section will state exactly who receives the recommendations, on what date they are published, and what standing they carry. That answer is not settled yet, and a vague version here would undermine the rest of the page.</p>
+      </div>
+
+      <p class="usf-prose usf-prose-after">What is already settled: the recommendations are advisory, they represent the conclusions of the forty delegates, and they are not the positions of any organizing or funding organization. They will be published in full, including where the panel could not agree.</p>
+    </div>
+  </section>
+
+  <!-- H. STAY INFORMED -->
+  <section class="usf-sec tint-gold">
+    <div class="wrap">
+      <div class="card usf-signup">
+        <span class="eyebrow">Stay informed</span>
+        <h2>Hear when the results are published.</h2>
+        <p>Roughly one email a month: poll findings, the materials as they are released, and the delegates' recommendations when they are ready.</p>
+
+        <form class="usf-form" id="usf-form" novalidate>
+          <div class="usf-field">
+            <label class="usf-label" for="usf-name">Name (optional)</label>
+            <input id="usf-name" name="name" type="text" autocomplete="name">
+          </div>
+          <div class="usf-field">
+            <label class="usf-label" for="usf-email">Email</label>
+            <input id="usf-email" name="email" type="email" required placeholder="you@example.com" autocomplete="email">
+          </div>
+          <div>
+            <button class="btn btn-primary" type="submit">Keep me posted</button>
+          </div>
+        </form>
+
+        <p class="usf-thanks" id="usf-thanks" hidden>Thank you — you are on the list.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- I. FOOTER -->
+<footer class="usf-footer">
+  <div class="wrap">
+    <div class="card usf-notice">
+      <span class="usf-label usf-label-gold">Draft — pending review</span>
+      <h3>Nonpartisan notice</h3>
+      <p>The Utah Solutions Forum is nonpartisan. It does not support or oppose any political party, candidate, or ballot measure. Presenters, facilitators, staff, partner organizations, and delegates may not conduct campaign activity in connection with the Forum. Recommendations produced by the Forum are the delegates' own conclusions and are not the positions of any organizing or funding organization. Nothing on this site is a request to contact a public official about legislation.</p>
+    </div>
+
+    <div class="usf-foot-cols">
+      <div>
+        <span class="usf-label">Hosts</span>
+        <p class="usf-foot-hosts">Utah Common Ground<br>Mormon Women for Ethical Government<br>In partnership with the BLOOM Project, an initiative of the Association for Civic Infrastructure</p>
+      </div>
+      <div>
+        <span class="usf-label">Funders</span>
+        <p class="usf-foot-tbc">Acknowledgments to be confirmed</p>
+      </div>
+      <div>
+        <span class="usf-label">Contact</span>
+        <p class="usf-foot-tbc">Press — address to be confirmed<br>General — address to be confirmed<br>Accessibility — address to be confirmed</p>
+      </div>
+    </div>
+
+    <p class="usf-label usf-label-sm usf-stamp">Utah Solutions Forum · September 18–19, 2026 · Lehi, Utah</p>
+  </div>
+</footer>
+
+<script>
+/* The design concept's DCLogic held { email, signedUp } and swapped two
+   <sc-if> branches. There is no backend behind this form yet, so the
+   submit handler only does what the concept did: show the confirmation.
+   Wire a real endpoint before publishing — see README.md. */
+(function () {
+  var form = document.getElementById('usf-form');
+  var thanks = document.getElementById('usf-thanks');
+  if (!form || !thanks) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('usf-email');
+    if (!email.value || !email.checkValidity()) {
+      email.focus();
+      return;
+    }
+    form.hidden = true;
+    thanks.hidden = false;
+    thanks.setAttribute('tabindex', '-1');
+    thanks.focus();
+  });
+})();
+</script>
+
+</body>
+</html>
