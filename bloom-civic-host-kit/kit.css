@@ -1,0 +1,435 @@
+/* =========================================================
+   BLOOM Civic Host — UI Kit
+   ---------------------------------------------------------
+   A warm, editorial system distinct from the marketing-site
+   tokens in /colors_and_type.css. Do not @import both.
+
+   Source of truth:
+     bloom-civic-host-invitation.html  (structure, palette, type)
+     cache-county-forum-responses      (data-display components)
+
+   Palette : paper + ink, with pine and gold as the two accents
+   Type    : Geom (display) · Hanken Grotesk (body) · DM Mono (labels)
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Geom:wght@400;500;600;700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Mono:wght@400;500&display=swap");
+
+:root{
+  /* =====================================================
+     COLOR — SURFACES
+     Warm paper rather than white. --paper is the page,
+     --paper-2 is anything raised off it (cards, panels).
+     ===================================================== */
+  --paper:        #FFF8F1;
+  --paper-2:      #FFFDF9;
+  --sand:         #F5E4C8;   /* chips, count pills, badges */
+  --sand-deep:    #F3E8D3;   /* full-bleed band (timeline) */
+
+  /* =====================================================
+     COLOR — INK (headings + text)
+     A dark brown, not black and not maroon.
+     ===================================================== */
+  --ink:          #432004;   /* headings, dark section bg */
+  --ink-body:     #3d2f1f;   /* densest body copy */
+  --ink-soft:     #5b4a38;   /* lede + secondary copy */
+
+  /* =====================================================
+     COLOR — PINE (the calm accent)
+     Structure, affirmative actions, numerals.
+     ===================================================== */
+  --pine:         #406B43;
+  --pine-dark:    #345838;   /* hover */
+  --pine-soft:    #79716B;   /* warm grey — meta, muted labels */
+
+  /* =====================================================
+     COLOR — GOLD (the loud accent)
+     Emphasis, bullets, active state. Use sparingly.
+     ===================================================== */
+  --gold:         #EE503B;
+  --gold-dark:    #D5402C;   /* gold text on light — passes contrast */
+
+  /* =====================================================
+     COLOR — ON DARK
+     For use inside .band / --ink backgrounds.
+     ===================================================== */
+  --on-dark:      #FFF8F1;   /* = --paper */
+  --on-dark-2:    #e4c9b4;   /* body copy on ink */
+  --on-dark-3:    #c9a688;   /* meta on ink */
+
+  /* =====================================================
+     COLOR — LINES + TINTS
+     Lines are ink at low alpha so they warm with the paper.
+     ===================================================== */
+  --line:            rgba(67,32,4,.14);
+  --line-strong:     rgba(67,32,4,.30);
+  --line-on-dark:    rgba(255,248,241,.18);
+  --tint-pine:       rgba(64,107,67,.05);
+  --tint-gold:       rgba(238,80,59,.05);
+
+  /* =====================================================
+     TYPE — FAMILIES
+     Geom is the display face; it falls back to Hanken
+     Grotesk, which is close enough that the fallback reads
+     as intentional rather than broken.
+     ===================================================== */
+  --font-display: "Geom","Hanken Grotesk",system-ui,sans-serif;
+  --font-sans:    "Hanken Grotesk",system-ui,sans-serif;
+  --font-mono:    "DM Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  /* TYPE — SIZE
+     Headings are fluid; body is fixed. Base is 17px, a step
+     up from 16 — this system is built for long-form reading. */
+  --text-hero:    clamp(38px, 6vw,   64px);
+  --text-h1:      clamp(36px, 5.6vw, 60px);
+  --text-h2:      clamp(28px, 3.6vw, 38px);
+  --text-h3:      20px;
+  --text-lede:    clamp(17px, 2vw,   21px);
+  --text-body:    17px;
+  --text-sm:      15px;
+  --text-meta:    13px;
+  --text-mono:    12px;   /* eyebrows, labels, tags */
+
+  --tracking-tight: -.01em;
+  --tracking-mono:   .04em;   /* every mono label carries this */
+  --leading-display: 1.08;
+  --leading-body:    1.6;
+
+  --weight-regular:  400;
+  --weight-medium:   500;   /* body default — this system runs at 500 */
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* =====================================================
+     SPACING / RADIUS / SHADOW
+     Pills are fully round; cards are 14–16px. There are no
+     drop shadows in this system — depth comes from the
+     paper/paper-2 pairing and hairline borders.
+     ===================================================== */
+  --space-1: 4px;   --space-2: 8px;   --space-3: 12px;
+  --space-4: 16px;  --space-5: 20px;  --space-6: 24px;
+  --space-8: 32px;  --space-10: 40px; --space-12: 48px;
+  --space-16: 64px; --space-18: 72px;
+
+  --radius-card:  14px;
+  --radius-panel: 16px;
+  --radius-pill:  999px;
+
+  --dur-fast: .15s;
+  --dur-base: .18s;
+  --dur-slow: .6s;
+  --ease:     ease;
+
+  --container: 1000px;   /* reading width; the invitation uses 1080 */
+  --header-h:  64px;
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 72px)}
+body{
+  font-family:var(--font-sans);
+  font-size:var(--text-body);
+  font-weight:var(--weight-medium);
+  line-height:var(--leading-body);
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{
+  font-family:var(--font-display);
+  font-weight:var(--weight-medium);
+  line-height:var(--leading-display);
+  letter-spacing:var(--tracking-tight);
+}
+h1{font-size:var(--text-h1)}
+h2{font-size:var(--text-h2)}
+h3{font-size:var(--text-h3)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:var(--radius-pill)}
+
+.wrap{max-width:var(--container);margin:0 auto;padding:0 28px}
+.lede{font-size:var(--text-lede);color:var(--ink-soft);max-width:62ch}
+
+/* =========================================================
+   EYEBROW — the system's signature label.
+   Solid ink pill on light; gold pill on dark.
+   ========================================================= */
+.eyebrow{
+  display:inline-flex;align-items:center;
+  font-family:var(--font-mono);font-size:var(--text-mono);
+  font-weight:var(--weight-medium);letter-spacing:var(--tracking-mono);
+  text-transform:uppercase;
+  color:var(--paper);background:var(--ink);
+  padding:7px 16px;border-radius:var(--radius-pill);
+}
+.eyebrow.on-dark{background:var(--gold);color:#2b0e06}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-weight:var(--weight-medium);
+  font-size:var(--text-meta);letter-spacing:var(--tracking-mono);
+  text-transform:uppercase;
+  padding:12px 22px;border-radius:var(--radius-pill);
+  border:1px solid transparent;cursor:pointer;text-decoration:none;
+  transition:transform var(--dur-fast) var(--ease),
+             background var(--dur-fast) var(--ease),
+             border-color var(--dur-fast) var(--ease);
+}
+.btn-primary{background:var(--pine);color:var(--paper)}
+.btn-primary:hover{background:var(--pine-dark);color:#fff;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--gold);transform:translateY(-1px)}
+.btn-ghost.on-dark{color:var(--paper);border-color:var(--line-on-dark)}
+.btn-ghost.on-dark:hover{border-color:var(--gold)}
+.btn-lg{font-size:15px;padding:16px 32px}
+.btn-sm{font-size:12px;padding:9px 16px}
+
+/* =========================================================
+   STAT TILE — headline numerals in the display face.
+   Inside .band the tile goes transparent and the number gold.
+   ========================================================= */
+.stats{display:flex;flex-wrap:wrap;gap:14px}
+.stat{
+  background:var(--paper-2);border:1px solid var(--line);
+  border-radius:var(--radius-card);padding:18px 24px;min-width:148px;
+}
+.stat .n{
+  font-family:var(--font-display);font-size:32px;
+  font-weight:var(--weight-semibold);color:var(--pine);line-height:1;
+}
+.stat .l{
+  font-family:var(--font-mono);font-size:var(--text-mono);
+  color:var(--pine-soft);margin-top:6px;
+  text-transform:uppercase;letter-spacing:.03em;
+}
+
+/* =========================================================
+   BAND — the dark signature section.
+   Use once or twice per page, never back to back.
+   ========================================================= */
+.band{background:var(--ink);color:var(--on-dark);padding:var(--space-16) 0}
+.band h2{color:var(--on-dark);max-width:20ch}
+.band .intro{color:var(--on-dark-2);max-width:62ch;margin-top:18px}
+.band .stat{background:transparent;border-color:var(--line-on-dark)}
+.band .stat .n{color:var(--gold)}
+.band .stat .l{color:var(--on-dark-3)}
+
+/* Grid of cells inside a band — hairline gaps, not borders */
+.band-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--line-on-dark);border:1px solid var(--line-on-dark);
+  border-radius:var(--radius-card);overflow:hidden;
+}
+.band-cell{background:var(--ink);padding:24px 22px 26px}
+.band-cell .no{font-family:var(--font-mono);font-size:14px;color:var(--gold);letter-spacing:var(--tracking-mono)}
+.band-cell h3{color:var(--on-dark);margin:12px 0 8px}
+.band-cell p{font-size:14.5px;color:var(--on-dark-2);line-height:1.55}
+@media(max-width:760px){.band-grid{grid-template-columns:1fr}}
+
+/* =========================================================
+   SECTION TINTS — rotate to separate long stretches of
+   content without adding rules or boxes.
+   ========================================================= */
+.tint-paper2{background:var(--paper-2)}
+.tint-pine  {background:var(--tint-pine)}
+.tint-gold  {background:var(--tint-gold)}
+
+/* =========================================================
+   CARDS
+   .card       — plain panel
+   .card-commit— dashed, for the "what you give" side of a pair
+   .tool       — gold top rule, for a grid of capabilities
+   ========================================================= */
+.card{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius-panel);padding:30px}
+.card-commit{background:transparent;border-style:dashed}
+.card .kicker{
+  font-family:var(--font-mono);font-size:var(--text-mono);color:var(--pine-soft);
+  text-transform:uppercase;letter-spacing:var(--tracking-mono);margin-bottom:16px;
+}
+.tool{
+  background:var(--paper-2);border:1px solid var(--line);
+  border-top:3px solid var(--gold);border-radius:var(--radius-panel);padding:26px;
+}
+
+/* Bulleted list inside a card — gold dot, hairline rules */
+.card-list{list-style:none}
+.card-list li{
+  position:relative;padding:9px 0 9px 26px;
+  border-top:1px solid var(--line);color:var(--ink-body);font-size:16px;
+}
+.card-list li:first-child{border-top:none}
+.card-list li::before{
+  content:"";position:absolute;left:2px;top:17px;
+  width:8px;height:8px;border-radius:50%;background:var(--gold);
+}
+.card-commit .card-list li::before{background:transparent;border:1.5px solid var(--pine-soft)}
+
+/* =========================================================
+   CHIPS
+   .chip     — sand fill, for a set of peer items
+   .chip-nav — outlined variant, for a second nav group
+   ========================================================= */
+.chip{
+  display:inline-flex;align-items:baseline;gap:9px;text-decoration:none;
+  background:var(--sand);color:var(--ink);
+  border:1px solid transparent;border-radius:var(--radius-pill);
+  padding:9px 18px;font-size:var(--text-sm);
+  transition:border-color var(--dur-fast) var(--ease);
+}
+.chip:hover{border-color:var(--gold)}
+.chip .h{
+  font-family:var(--font-mono);font-size:11.5px;color:var(--gold-dark);
+  text-transform:uppercase;letter-spacing:var(--tracking-mono);
+}
+.chip-nav{background:transparent;border-color:var(--line)}
+.chip-nav .h{color:var(--pine)}
+
+/* =========================================================
+   BADGES
+   .count — how many things are inside
+   .echo  — a repeat / convergence marker
+   ========================================================= */
+.count{
+  font-family:var(--font-mono);font-weight:var(--weight-medium);font-size:13px;
+  color:var(--gold-dark);background:var(--sand);
+  border-radius:var(--radius-pill);padding:4px 12px;min-width:40px;text-align:center;
+}
+.count-muted{background:transparent;border:1px solid var(--line);color:var(--pine-soft)}
+.echo{
+  display:inline-block;font-family:var(--font-mono);font-size:10.5px;
+  font-weight:var(--weight-medium);letter-spacing:var(--tracking-mono);
+  text-transform:uppercase;color:var(--gold-dark);background:var(--sand);
+  border-radius:var(--radius-pill);padding:2px 9px;
+}
+
+/* =========================================================
+   LEDGER — a disclosure row carrying a proportional bar.
+   Built on <details>/<summary>, so it works without JS.
+   ========================================================= */
+.ledger{
+  background:var(--paper-2);border:1px solid var(--line);
+  border-radius:var(--radius-card);margin-bottom:12px;overflow:hidden;
+  transition:border-color var(--dur-fast) var(--ease);
+}
+.ledger:hover{border-color:var(--line-strong)}
+.ledger[open]{border-color:var(--gold)}
+.ledger > summary{
+  list-style:none;cursor:pointer;display:grid;
+  grid-template-columns:118px 1fr auto auto;align-items:center;
+  gap:18px;padding:16px 20px;
+}
+.ledger > summary::-webkit-details-marker{display:none}
+.ledger > summary:focus-visible{outline:3px solid var(--gold);outline-offset:-3px;border-radius:13px}
+
+/* the proportional bar — pine at rest, gold at full */
+.bar{height:8px;background:rgba(67,32,4,.1);border-radius:5px;overflow:hidden}
+.bar-fill{display:block;height:100%;border-radius:5px;
+  background:linear-gradient(90deg,var(--pine),var(--gold))}
+
+.ledger-name{font-family:var(--font-display);font-weight:var(--weight-medium);font-size:18px;line-height:1.25}
+.chev{
+  width:10px;height:10px;margin-right:3px;transform:rotate(45deg);
+  border-right:2px solid var(--pine-soft);border-bottom:2px solid var(--pine-soft);
+  transition:transform var(--dur-base) var(--ease);
+}
+.ledger[open] .chev{transform:rotate(-135deg);border-color:var(--gold)}
+
+/* muted variant — the "everything else" row at the end of a set */
+.ledger-muted{background:transparent;border-style:dashed}
+.ledger-muted .ledger-name{font-style:italic;color:var(--pine-soft)}
+.ledger-muted .bar{background:transparent}
+
+.ledger-body{list-style:none;padding:2px 22px 20px;border-top:1px solid var(--line)}
+.ledger-body li{
+  position:relative;padding:11px 58px 11px 26px;
+  border-top:1px solid var(--line);font-size:16px;
+  color:var(--ink-body);line-height:1.5;
+}
+.ledger-body li:first-child{border-top:none}
+.ledger-body li::before{
+  content:"";position:absolute;left:2px;top:19px;
+  width:8px;height:8px;border-radius:50%;background:var(--gold);
+}
+.ledger-muted .ledger-body li::before{background:transparent;border:1.5px solid var(--pine-soft)}
+.ledger-body .echo{position:absolute;right:14px;top:50%;transform:translateY(-50%);margin:0}
+
+/* =========================================================
+   CLUSTER — a titled group of items with responsible actors.
+   ========================================================= */
+.cluster{
+  background:var(--paper-2);border:1px solid var(--line);
+  border-radius:var(--radius-card);padding:22px 24px;margin:16px 0;
+}
+.cluster-head{
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;
+  gap:10px 20px;padding-bottom:14px;border-bottom:1px solid var(--line);
+}
+.items{list-style:none}
+.items li{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line)}
+.items li:last-child{border-bottom:none}
+.itxt{font-size:16px;line-height:1.5;color:var(--ink-body)}
+
+/* state dots — filled = firm, hollow = provisional */
+.dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto;margin-top:8px}
+.dot-firm{background:var(--gold)}
+.dot-open{background:transparent;border:1.5px solid var(--pine-soft)}
+.on-dark .dot-open,.band .dot-open{border-color:var(--on-dark-3)}
+
+/* =========================================================
+   ACTOR TAGS — who carries a given item.
+   Six muted tints. All sit on paper-2 without vibrating;
+   only "conveners" is cool, which is what makes it findable.
+   ========================================================= */
+.actor{
+  font-family:var(--font-mono);font-size:11px;font-weight:var(--weight-medium);
+  letter-spacing:.03em;border-radius:var(--radius-pill);
+  padding:4px 11px;white-space:nowrap;
+}
+.actor-state    {color:#3F6B45;background:#E7EDE5}
+.actor-federal  {color:#5B3E2A;background:#EFE6DC}
+.actor-local    {color:#C0492F;background:#FBE7E0}
+.actor-operator {color:#6E645C;background:#EDEAE6}
+.actor-resident {color:#95610F;background:#F7EBD5}
+.actor-convener {color:#33685F;background:#E2EDEA}
+
+/* =========================================================
+   PULL QUOTE + ASIDES
+   ========================================================= */
+blockquote.pull{
+  max-width:64ch;padding:28px 30px;background:var(--paper-2);
+  border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:0 var(--radius-card) var(--radius-card) 0;
+}
+blockquote.pull p{font-size:20px;line-height:1.45;font-style:italic;color:var(--ink)}
+blockquote.pull cite{
+  display:block;margin-top:16px;font-family:var(--font-mono);font-style:normal;
+  font-size:var(--text-meta);color:var(--pine);
+}
+.pull-line{
+  max-width:58ch;font-size:17px;color:var(--pine);font-weight:var(--weight-semibold);
+  padding-left:16px;border-left:3px solid var(--pine-soft);
+}
+.caveat{
+  max-width:64ch;font-size:var(--text-sm);color:var(--pine-soft);
+  padding-left:16px;border-left:3px solid var(--line);
+}
+
+/* =========================================================
+   REVEAL — progressive enhancement only.
+   The .js class is set by an inline script; without it the
+   content is simply visible. Never let animation gate content.
+   ========================================================= */
+.js .reveal{opacity:0;transform:translateY(18px);
+  transition:opacity var(--dur-slow) var(--ease),transform var(--dur-slow) var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none}
+  *{transition:none!important}
+}
